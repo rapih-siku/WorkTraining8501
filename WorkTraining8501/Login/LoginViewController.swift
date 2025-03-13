@@ -62,10 +62,7 @@ class LoginViewController: UIViewController {
     @IBAction func toRegister(_ sender: Any) {
         let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
         let vm = RegisterViewModel()
-        
-        print("產生 RegisterViewModel 實例：\(vm)")
-        
-        vm.registerSuscess = { [weak self] newUser in
+        vm.registerSuccess2 = { [weak self] newUser in
             DispatchQueue.main.async {
                 print("得到新註冊的使用者資料了")
                 self?.account.text = newUser.account

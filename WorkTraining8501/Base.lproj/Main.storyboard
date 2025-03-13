@@ -260,7 +260,7 @@
                                                 <color key="backgroundColor" white="0.67000000000000004" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="大學" cornerStyle="large">
+                                                <buttonConfiguration key="configuration" style="plain" title="學士" cornerStyle="large">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -386,24 +386,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="學歷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrz-Cf-7MM">
-                                <rect key="frame" x="10" y="10" width="373" height="21"/>
+                                <rect key="frame" x="10" y="20" width="373" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Y1-L7-xiJ">
-                                <rect key="frame" x="10" y="41" width="373" height="791"/>
+                                <rect key="frame" x="10" y="51" width="373" height="781"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomSheetTableViewCell" id="70z-tu-aaX" customClass="BottomSheetTableViewCell" customModule="WorkTraining8501" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="373" height="63.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="373" height="63.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="70z-tu-aaX" id="QcM-hq-7EQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="63.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="63.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-QQ-K0D">
-                                                    <rect key="frame" x="30" y="21" width="313" height="21.666666666666671"/>
+                                                    <rect key="frame" x="30" y="21" width="313" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -430,7 +430,7 @@
                             <constraint firstItem="mXX-Hg-JZo" firstAttribute="trailing" secondItem="3Y1-L7-xiJ" secondAttribute="trailing" constant="10" id="Bfl-oA-6Jf"/>
                             <constraint firstItem="mXX-Hg-JZo" firstAttribute="trailing" secondItem="Xrz-Cf-7MM" secondAttribute="trailing" constant="10" id="IiN-k6-yrH"/>
                             <constraint firstItem="mXX-Hg-JZo" firstAttribute="bottom" secondItem="3Y1-L7-xiJ" secondAttribute="bottom" priority="999" constant="10" id="Ku2-QM-TRA"/>
-                            <constraint firstItem="Xrz-Cf-7MM" firstAttribute="top" secondItem="mXX-Hg-JZo" secondAttribute="top" constant="10" id="l0A-9H-caG"/>
+                            <constraint firstItem="Xrz-Cf-7MM" firstAttribute="top" secondItem="mXX-Hg-JZo" secondAttribute="top" constant="20" id="l0A-9H-caG"/>
                             <constraint firstItem="Xrz-Cf-7MM" firstAttribute="leading" secondItem="mXX-Hg-JZo" secondAttribute="leading" constant="10" id="njN-j5-ZUf"/>
                             <constraint firstItem="3Y1-L7-xiJ" firstAttribute="leading" secondItem="mXX-Hg-JZo" secondAttribute="leading" constant="10" id="nww-yV-zIu"/>
                         </constraints>

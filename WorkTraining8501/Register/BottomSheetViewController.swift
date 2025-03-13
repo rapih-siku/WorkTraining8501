@@ -7,13 +7,35 @@
 
 import UIKit
 
+extension BottomSheetViewController {
+    func setVC(viewModel: BottomSheetViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
 class BottomSheetViewController: UIViewController {
 
     @IBOutlet weak var optionsTableView: UITableView!
-    var viewModel: RegisterViewModel!
+    
+    private var viewModel: BottomSheetViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        optionsTableView.dataSource = self
+        optionsTableView.delegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        optionsTableView.reloadData()
+        optionsTableView.layoutIfNeeded()
+        
+        self.preferredContentSize = CGSize(width: view.frame.width, height: getVCTotalHeigh())
+    }
+    
+    func getVCTotalHeigh() -> CGFloat {
+        let totalHeigh = CGFloat(optionsTableView.contentSize.height + 60)
+        return totalHeigh
     }
 }
 
@@ -24,7 +46,16 @@ extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BottomSheetTableViewCell.reuseIdentifier, for: indexPath) as? BottomSheetTableViewCell else { fatalError() }
-        cell.option.text = viewModel.educationData[indexPath.row]
+        let currentEducation = viewModel.educationData[indexPath.row]
+        cell.option.text = currentEducation
+        cell.option.textColor = viewModel.isSelected(education: currentEducation) ? .purple : .black
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selected = viewModel.educationData[indexPath.row]
+        viewModel.selectEducation(education: selected)
+        dismiss(animated: true)
     }
 }

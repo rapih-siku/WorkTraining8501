@@ -10,19 +10,19 @@ import UIKit
 
 class RegisterViewModel {
     
-    let educationData = ["博士", "碩士", "學士"]
-    var isAgreeRule: Bool = false
-    
     var errorMessage: ((String) -> Void)?
-    var registerSuscess: ((User) -> Void)?
-    var sexChaged: ((String) -> Void)?
+    var registerSuccess: ((User) -> Void)?
+    var registerSuccess2: ((User) -> Void)?
+    var sexChanged: ((String) -> Void)?
     var educationChange: ((String) -> Void)?
+    
+    var isAgreeRule: Bool = false
     
     private var newUser = User(account: "", password: "", education: "大學")
     
     func updateSex(_ sex: String) {
         newUser.sex = sex
-        sexChaged?(sex)
+        sexChanged?(sex)
     }
     
     func updateEducation(_ education: String) {
@@ -68,8 +68,8 @@ class RegisterViewModel {
         users.append(newUser)
         saveUserData(users: users)
         
-        print("準備呼叫registerSuscess closure")
-        registerSuscess?(newUser)
+        registerSuccess?(newUser)
+        registerSuccess2?(newUser)
     }
     
     func saveUserData(users: [User]) {

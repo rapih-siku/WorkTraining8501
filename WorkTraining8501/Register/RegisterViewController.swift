@@ -29,10 +29,10 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bingViewMoodel()
+        bingViewModel()
     }
     
-    func bingViewMoodel() {
+    func bingViewModel() {
         
         viewModel?.errorMessage = { [weak self] massage in
             DispatchQueue.main.async(execute:  {
@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
             })
         }
         
-        viewModel?.registerSuscess = { [weak self] newUser in
+        viewModel?.registerSuccess = { [weak self] newUser in
             DispatchQueue.main.async {
                 self?.showAlert(title: "註冊成功", message: "帳號：\(newUser.account)\n密碼：\(newUser.password)\n性別：\(newUser.sex ?? "")\n學歷：\(newUser.education ?? "")") {
                     self?.dismiss(animated: true, completion: nil)
@@ -48,7 +48,7 @@ class RegisterViewController: UIViewController {
             }
         }
         
-        viewModel?.sexChaged = { [weak self] sex in
+        viewModel?.sexChanged = { [weak self] sex in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.male.configuration?.image = (sex == "男性") ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "circle")
@@ -57,7 +57,7 @@ class RegisterViewController: UIViewController {
         }
         
         viewModel?.educationChange = { [weak self] education in
-            self?.education.setTitle(education, for: .normal)
+            self?.education.configuration?.title = education
         }
     }
     
@@ -66,7 +66,21 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func selectEducation(_ sender: UIButton) {
-
+        
+        let buttonSheetVC = storyboard?.instantiateViewController(identifier: "BottomSheetViewController") as! BottomSheetViewController
+        let vm = BottomSheetViewModel()
+        vm.setEducation(education: sender.configuration?.title ?? "學士")
+        vm.sentSelectedEducation = { [weak self] education in
+            self?.viewModel?.updateEducation(education)
+        }
+        buttonSheetVC.setVC(viewModel: vm)
+        
+        if let sheetPresentationController = buttonSheetVC.sheetPresentationController {
+            sheetPresentationController.detents = [.custom(resolver: { context in
+                return buttonSheetVC.getVCTotalHeigh()
+            })]
+        }
+        present(buttonSheetVC, animated: true)
     }
     
     @IBAction func agreeRule(_ sender: UIButton) {
