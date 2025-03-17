@@ -7,12 +7,6 @@
 
 import UIKit
 
-extension LoginViewController {
-    func setVC(viewModel: LoginViewModel) {
-        self.viewModel = viewModel
-    }
-}
-//Test
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginTitle: UILabel!
@@ -30,31 +24,11 @@ class LoginViewController: UIViewController {
         account.delegate = self
         password.delegate = self
         
-        setVC(viewModel: LoginViewModel())
         bindViewModel()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    private func bindViewModel() {
-        viewModel?.errorMessage = { [weak self] message in
-            DispatchQueue.main.async {
-                self?.errorMessage.text = message
-            }
-        }
-        
-        viewModel?.loginSuccessMessage = { [weak self] message in
-            DispatchQueue.main.async {
-                self?.showAlert(title: nil, message: message) {
-                    let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
-                    let vm = ProductVM()
-                    productVC.setVC(viewModel: vm)
-                    self?.navigationController?.pushViewController(productVC, animated: true)
-                }
-            }
-        }
     }
     
     @IBAction func login(_ sender: Any) {
@@ -74,6 +48,30 @@ class LoginViewController: UIViewController {
         }
         registerVC.setVC(viewModel: vm)
         present(registerVC, animated: true)
+    }
+}
+
+extension LoginViewController {
+    
+    private func bindViewModel() {
+        self.viewModel = LoginViewModel()
+        
+        viewModel?.errorMessage = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.errorMessage.text = message
+            }
+        }
+        
+        viewModel?.loginSuccessMessage = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.showAlert(title: nil, message: message) {
+                    let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
+                    let vm = ProductVM()
+                    productVC.setVC(viewModel: vm)
+                    self?.navigationController?.pushViewController(productVC, animated: true)
+                }
+            }
+        }
     }
 }
 

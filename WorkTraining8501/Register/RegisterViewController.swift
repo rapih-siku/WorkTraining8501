@@ -32,35 +32,6 @@ class RegisterViewController: UIViewController {
         bindViewModel()
     }
     
-    private func bindViewModel() {
-        
-        viewModel?.errorMessage = { [weak self] massage in
-            DispatchQueue.main.async(execute:  {
-                self?.errorMessage.text = massage
-            })
-        }
-        
-        viewModel?.registerSuccess = { [weak self] newUser in
-            DispatchQueue.main.async {
-                self?.showAlert(title: "註冊成功", message: "帳號：\(newUser.account)\n密碼：\(newUser.password)\n性別：\(newUser.sex ?? "")\n學歷：\(newUser.education ?? "")") {
-                    self?.dismiss(animated: true, completion: nil)
-                }
-            }
-        }
-        
-        viewModel?.sexChanged = { [weak self] sex in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.male.configuration?.image = (sex == "男性") ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "circle")
-                self.female.configuration?.image = (sex == "女性") ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "circle")
-            }
-        }
-        
-        viewModel?.educationChange = { [weak self] education in
-            self?.education.configuration?.title = education
-        }
-    }
-    
     @IBAction func selectSex(_ sender: UIButton) {
         viewModel?.updateSex(sender.tag == 0 ? "男性" : "女性")
     }
@@ -91,5 +62,36 @@ class RegisterViewController: UIViewController {
     
     @IBAction func register(_ sender: Any) {
         viewModel?.register(account: account.text, password: password.text, users: loadUsers())
+    }
+}
+
+extension RegisterViewController {
+    private func bindViewModel() {
+        
+        viewModel?.errorMessage = { [weak self] massage in
+            DispatchQueue.main.async(execute:  {
+                self?.errorMessage.text = massage
+            })
+        }
+        
+        viewModel?.registerSuccess = { [weak self] newUser in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "註冊成功", message: "帳號：\(newUser.account)\n密碼：\(newUser.password)\n性別：\(newUser.sex ?? "")\n學歷：\(newUser.education ?? "")") {
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        
+        viewModel?.sexChanged = { [weak self] sex in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.male.configuration?.image = (sex == "男性") ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "circle")
+                self.female.configuration?.image = (sex == "女性") ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "circle")
+            }
+        }
+        
+        viewModel?.educationChange = { [weak self] education in
+            self?.education.configuration?.title = education
+        }
     }
 }

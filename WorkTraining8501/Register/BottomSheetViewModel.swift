@@ -14,7 +14,6 @@ class BottomSheetViewModel {
     var sentSelectedEducation: ((String) -> Void)?
     
     func isSelected(education: String) -> Bool {
-        print(selectedEducation)
         return education == selectedEducation
     }
     
