@@ -26,26 +26,12 @@ class selectionTableViewCell: UITableViewCell {
     
     func setCell(viewModel: SelectionTableViewCellVM) {
         self.viewModel = viewModel
-        title.text = "\(viewModel.travelerInfo?.travelerType ?? "") \(viewModel.travelerInfo?.age ?? "")"
-        count.text = "\(viewModel.travelerInfo?.count ?? 0)"
+        title.text = viewModel.title
+        count.text = viewModel.count
         
-        adjustButton()
+        viewModel.adjustButton(button: subtractButton)
     }
-    
-    private func adjustButton() {
-        if viewModel?.travelerInfo?.travelerType == "大人" && (viewModel?.travelerInfo?.count ?? 0) <= 1 {
-            subtractButton.isEnabled = false
-            subtractButton.tintColor = .gray
-        } else if
-            (viewModel?.travelerInfo?.count ?? 0) <= 0 {
-            subtractButton.isEnabled = false
-            subtractButton.tintColor = .gray
-        } else {
-            subtractButton.isEnabled = true
-            subtractButton.tintColor = UIColor(red: 170/255, green: 96/255, blue: 200/255, alpha: 1)
-        }
-    }
-    
+        
     @IBAction func decreaseCount(_ sender: Any) {
         viewModel?.decreaseCount()
     }
