@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         account.delegate = self
         password.delegate = self
         
+        setVC(viewModel: LoginViewModel())
         bindViewModel()
     }
     
@@ -37,8 +38,7 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func bindViewModel() {
-        
+    private func bindViewModel() {
         viewModel?.errorMessage = { [weak self] message in
             DispatchQueue.main.async {
                 self?.errorMessage.text = message
@@ -49,6 +49,8 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.showAlert(title: nil, message: message) {
                     let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
+                    let vm = ProductVM()
+                    productVC.setVC(viewModel: vm)
                     self?.navigationController?.pushViewController(productVC, animated: true)
                 }
             }

@@ -24,15 +24,15 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var register: UIButton!
     
-    var viewModel: RegisterViewModel?
+    private var viewModel: RegisterViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bingViewModel()
+        bindViewModel()
     }
     
-    func bingViewModel() {
+    private func bindViewModel() {
         
         viewModel?.errorMessage = { [weak self] massage in
             DispatchQueue.main.async(execute:  {
