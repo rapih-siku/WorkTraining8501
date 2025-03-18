@@ -7,12 +7,6 @@
 
 import UIKit
 
-extension LoginViewController {
-    func setVC(viewModel: LoginViewModel) {
-        self.viewModel = viewModel
-    }
-}
-
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginTitle: UILabel!
@@ -37,7 +31,30 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func bindViewModel() {
+    @IBAction func login(_ sender: Any) {
+        viewModel?.onTouchLogin(account: account.text, password: password.text, users: loadUsers())
+    }
+    
+    @IBAction func toRegister(_ sender: Any) {
+        let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        let vm = RegisterViewModel()
+        vm.registerSuccess2 = { [weak self] newUser in
+            DispatchQueue.main.async {
+                print("得到新註冊的使用者資料了")
+                self?.account.text = newUser.account
+                self?.password.text = ""
+                self?.errorMessage.text = ""
+            }
+        }
+        registerVC.setVC(viewModel: vm)
+        present(registerVC, animated: true)
+    }
+}
+
+extension LoginViewController {
+    
+    private func bindViewModel() {
+        self.viewModel = LoginViewModel()
         
         viewModel?.errorMessage = { [weak self] message in
             DispatchQueue.main.async {
@@ -49,32 +66,12 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.showAlert(title: nil, message: message) {
                     let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
+                    let vm = ProductVM()
+                    productVC.setVC(viewModel: vm)
                     self?.navigationController?.pushViewController(productVC, animated: true)
                 }
             }
         }
-    }
-    
-    @IBAction func login(_ sender: Any) {
-        viewModel?.onTouchLogin(account: account.text, password: password.text, users: loadUsers())
-    }
-    
-    @IBAction func toRegister(_ sender: Any) {
-        let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        let vm = RegisterViewModel()
-        
-        print("產生 RegisterViewModel 實例：\(vm)")
-        
-        vm.registerSuscess = { [weak self] newUser in
-            DispatchQueue.main.async {
-                print("得到新註冊的使用者資料了")
-                self?.account.text = newUser.account
-                self?.password.text = ""
-                self?.errorMessage.text = ""
-            }
-        }
-        registerVC.setVC(viewModel: vm)
-        present(registerVC, animated: true)
     }
 }
 

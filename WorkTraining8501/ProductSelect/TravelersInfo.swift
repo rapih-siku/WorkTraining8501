@@ -8,7 +8,7 @@
 import Foundation
 
 struct TravelersInfo {
-    var travelerType: String
-    var age: String
+    let travelerType: String
+    let age: String
     var count: Int
 }

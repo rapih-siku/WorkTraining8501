@@ -260,7 +260,7 @@
                                                 <color key="backgroundColor" white="0.67000000000000004" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="大學" cornerStyle="large">
+                                                <buttonConfiguration key="configuration" style="plain" title="學士" cornerStyle="large">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -386,13 +386,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="學歷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrz-Cf-7MM">
-                                <rect key="frame" x="10" y="10" width="373" height="21"/>
+                                <rect key="frame" x="10" y="20" width="373" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Y1-L7-xiJ">
-                                <rect key="frame" x="10" y="41" width="373" height="791"/>
+                                <rect key="frame" x="10" y="51" width="373" height="781"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomSheetTableViewCell" id="70z-tu-aaX" customClass="BottomSheetTableViewCell" customModule="WorkTraining8501" customModuleProvider="target">
@@ -430,7 +430,7 @@
                             <constraint firstItem="mXX-Hg-JZo" firstAttribute="trailing" secondItem="3Y1-L7-xiJ" secondAttribute="trailing" constant="10" id="Bfl-oA-6Jf"/>
                             <constraint firstItem="mXX-Hg-JZo" firstAttribute="trailing" secondItem="Xrz-Cf-7MM" secondAttribute="trailing" constant="10" id="IiN-k6-yrH"/>
                             <constraint firstItem="mXX-Hg-JZo" firstAttribute="bottom" secondItem="3Y1-L7-xiJ" secondAttribute="bottom" priority="999" constant="10" id="Ku2-QM-TRA"/>
-                            <constraint firstItem="Xrz-Cf-7MM" firstAttribute="top" secondItem="mXX-Hg-JZo" secondAttribute="top" constant="10" id="l0A-9H-caG"/>
+                            <constraint firstItem="Xrz-Cf-7MM" firstAttribute="top" secondItem="mXX-Hg-JZo" secondAttribute="top" constant="20" id="l0A-9H-caG"/>
                             <constraint firstItem="Xrz-Cf-7MM" firstAttribute="leading" secondItem="mXX-Hg-JZo" secondAttribute="leading" constant="10" id="njN-j5-ZUf"/>
                             <constraint firstItem="3Y1-L7-xiJ" firstAttribute="leading" secondItem="mXX-Hg-JZo" secondAttribute="leading" constant="10" id="nww-yV-zIu"/>
                         </constraints>
@@ -503,10 +503,10 @@
             </objects>
             <point key="canvasLocation" x="254" y="804"/>
         </scene>
-        <!--Product Customization View Controller-->
+        <!--Product Bottom Sheet View Controller-->
         <scene sceneID="h5X-l7-bDD">
             <objects>
-                <viewController storyboardIdentifier="ProductCustomizationViewController" id="GDV-AM-Wgw" customClass="ProductCustomizationViewController" customModule="WorkTraining8501" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductBottomSheetViewController" id="GDV-AM-Wgw" customClass="ProductBottomSheetViewController" customModule="WorkTraining8501" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zVW-eD-Lk6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -515,7 +515,7 @@
                                 <rect key="frame" x="10" y="20" width="373" height="767"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectionTableViewCell" rowHeight="88" id="2MZ-HZ-eDV" customClass="ProductCustomizationTableViewCell" customModule="WorkTraining8501" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectionTableViewCell" rowHeight="88" id="2MZ-HZ-eDV" customClass="selectionTableViewCell" customModule="WorkTraining8501" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="373" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2MZ-HZ-eDV" id="kqd-OY-EOj">
@@ -536,7 +536,7 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system"/>
                                                             <connections>
-                                                                <action selector="adjustCount:" destination="2MZ-HZ-eDV" eventType="touchUpInside" id="Wzj-V0-OpA"/>
+                                                                <action selector="decreaseCount:" destination="2MZ-HZ-eDV" eventType="touchUpInside" id="l1b-hf-NcF"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-Mp-aoU">
@@ -550,7 +550,7 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
                                                             <connections>
-                                                                <action selector="adjustCount:" destination="2MZ-HZ-eDV" eventType="touchUpInside" id="RBe-eO-PJr"/>
+                                                                <action selector="increaseCount:" destination="2MZ-HZ-eDV" eventType="touchUpInside" id="dr3-HS-8Oo"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
