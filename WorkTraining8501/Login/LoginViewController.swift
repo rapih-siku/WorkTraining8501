@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension LoginViewController {
+    func setVC(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginTitle: UILabel!
@@ -39,10 +45,11 @@ class LoginViewController: UIViewController {
             }
         }
         
-        viewModel?.loginSuccess = { [weak self] message in
+        viewModel?.loginSuccessMessage = { [weak self] message in
             DispatchQueue.main.async {
                 self?.showAlert(title: nil, message: message) {
-//                    self?.performSegue(withIdentifier: "toProductViewController", sender: nil)
+                    let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
+                    self?.navigationController?.pushViewController(productVC, animated: true)
                 }
             }
         }
@@ -68,12 +75,6 @@ class LoginViewController: UIViewController {
         }
         registerVC.setVC(viewModel: vm)
         present(registerVC, animated: true)
-    }
-}
-
-extension LoginViewController {
-    func setVC(viewModel: LoginViewModel) {
-        self.viewModel = viewModel
     }
 }
 
