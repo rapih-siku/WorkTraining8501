@@ -8,23 +8,19 @@
 import UIKit
 
 class SentMessageTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var messageBackground: UIView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var message: UILabel!
+    
+    static let reuseIdentifier = "\(SentMessageTableViewCell.self)"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         messageBackground.clipsToBounds = true
         messageBackground.layer.cornerRadius = 15
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setCell(message: Message) {
@@ -35,5 +31,4 @@ class SentMessageTableViewCell: UITableViewCell {
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         time.text = formatter.string(from: message.time)
     }
-
 }
