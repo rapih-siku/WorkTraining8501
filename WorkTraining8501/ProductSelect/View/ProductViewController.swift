@@ -49,6 +49,9 @@ class ProductViewController: UIViewController {
     
     @IBAction func toChatRoom(_ sender: Any) {
         let chatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
+        let vm = ChatRoomVM()
+        vm.chatContent = vm.loadMessagesData()
+        chatRoomVC.setVC(viewModel: vm)
         self.navigationController?.pushViewController(chatRoomVC, animated: true)
     }
 }

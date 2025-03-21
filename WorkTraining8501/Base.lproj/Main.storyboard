@@ -397,14 +397,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomSheetTableViewCell" id="70z-tu-aaX" customClass="BottomSheetTableViewCell" customModule="WorkTraining8501" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="373" height="63.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="50" width="373" height="62.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="70z-tu-aaX" id="QcM-hq-7EQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="63.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="62.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-QQ-K0D">
-                                                    <rect key="frame" x="30" y="21" width="313" height="21.333333333333329"/>
+                                                    <rect key="frame" x="30" y="21" width="313" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -872,7 +872,20 @@
                             <constraint firstItem="l65-IZ-rMk" firstAttribute="bottom" secondItem="nHe-gb-rTA" secondAttribute="top" id="pBb-yO-hdx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cBg-6f-yFo"/>
+                    <navigationItem key="navigationItem" id="cBg-6f-yFo">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="e71-HZ-agJ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Y4c-Xo-3M8">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="clear"/>
+                                <connections>
+                                    <action selector="clearMessage:" destination="cQ4-Tc-y7W" eventType="touchUpInside" id="K1j-Cn-Osq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundHeight" destination="PES-OT-VVP" id="nfM-2R-Ojv"/>
                         <outlet property="chatRoom" destination="l65-IZ-rMk" id="JoJ-Gt-myT"/>
@@ -997,6 +1010,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fYf-kK-zVc">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

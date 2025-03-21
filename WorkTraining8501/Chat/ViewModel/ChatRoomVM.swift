@@ -32,6 +32,7 @@ class ChatRoomVM {
     func sortedMessage() {
         let sortedMessage = chatContent.sorted { $0.time < $1.time }
         chatContent = sortedMessage
+        saveMessagesData(chatContent: chatContent)
     }
     
     func createMessage(text: String?, stickerName: String?) {
@@ -63,6 +64,11 @@ class ChatRoomVM {
         }
     }
     
+    func clearMessages() {
+        chatContent.removeAll()
+        onDataUpdated?()
+    }
+    
     func scrollToBottom(tableView: UITableView, animated: Bool) {
         DispatchQueue.main.async {
             let lastRow = tableView.numberOfRows(inSection: 0) - 1
@@ -70,6 +76,27 @@ class ChatRoomVM {
                 let indexPath = IndexPath(row: lastRow, section: 0)
                 tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
             }
+        }
+    }
+    
+    func saveMessagesData(chatContent: [Message]) {
+        if let chatContentData = try? JSONEncoder().encode(chatContent) {
+            UserDefaults.standard.set(chatContentData, forKey: "chatContentData")
+        } else {
+            print("🔴chatContent儲存失敗")
+        }
+    }
+    
+    func loadMessagesData() -> [Message] {
+        if let chatContentData = UserDefaults.standard.data(forKey: "chatContentData") {
+            do {
+                return try JSONDecoder().decode([Message].self, from: chatContentData)
+            } catch {
+                print("🔴讀取資料失敗：\(error.localizedDescription)")
+                return []
+            }
+        } else {
+            return []
         }
     }
 }

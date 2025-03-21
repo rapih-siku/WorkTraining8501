@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension ChatRoomViewController {
+    func setVC(viewModel: ChatRoomVM) {
+        self.viewModel = viewModel
+    }
+}
+
 class ChatRoomViewController: UIViewController {
     
     @IBOutlet weak var chatRoom: UITableView!
@@ -55,6 +61,10 @@ class ChatRoomViewController: UIViewController {
             }
         }
         view.layoutIfNeeded()
+    }
+    
+    @IBAction func clearMessage(_ sender: Any) {
+        viewModel?.clearMessages()
     }
 }
 
@@ -114,7 +124,6 @@ extension ChatRoomViewController: UICollectionViewDataSource, UICollectionViewDe
 
 extension ChatRoomViewController {
     private func bindViewModel() {
-        self.viewModel = ChatRoomVM()
         
         viewModel?.scrollToBottom(tableView: chatRoom,animated: false)
         
