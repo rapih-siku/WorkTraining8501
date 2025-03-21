@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var register: UIButton!
     
-    private var viewModel: LoginViewModel?
+    private var viewModel: LoginVM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func toRegister(_ sender: Any) {
         let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        let vm = RegisterViewModel()
+        let vm = RegisterVM()
         vm.registerSuccess2 = { [weak self] newUser in
             DispatchQueue.main.async {
                 print("得到新註冊的使用者資料了")
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func bindViewModel() {
-        self.viewModel = LoginViewModel()
+        self.viewModel = LoginVM()
         
         viewModel?.errorMessage = { [weak self] message in
             DispatchQueue.main.async {

@@ -8,7 +8,7 @@
 import UIKit
 
 extension BottomSheetViewController {
-    func setVC(viewModel: BottomSheetViewModel) {
+    func setVC(viewModel: BottomSheetVM) {
         self.viewModel = viewModel
     }
 }
@@ -17,7 +17,7 @@ class BottomSheetViewController: UIViewController {
 
     @IBOutlet weak var optionsTableView: UITableView!
     
-    private var viewModel: BottomSheetViewModel!
+    private var viewModel: BottomSheetVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()

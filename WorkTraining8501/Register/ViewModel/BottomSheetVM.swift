@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BottomSheetViewModel {
+class BottomSheetVM {
     let educationData = ["博士", "碩士", "學士"]
     var selectedEducation: String?
     

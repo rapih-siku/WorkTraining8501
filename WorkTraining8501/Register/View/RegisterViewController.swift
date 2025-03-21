@@ -8,7 +8,7 @@
 import UIKit
 
 extension RegisterViewController {
-    func setVC(viewModel: RegisterViewModel) {
+    func setVC(viewModel: RegisterVM) {
         self.viewModel = viewModel
     }
 }
@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var register: UIButton!
     
-    private var viewModel: RegisterViewModel?
+    private var viewModel: RegisterVM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController {
     @IBAction func selectEducation(_ sender: UIButton) {
         
         let buttonSheetVC = storyboard?.instantiateViewController(identifier: "BottomSheetViewController") as! BottomSheetViewController
-        let vm = BottomSheetViewModel()
+        let vm = BottomSheetVM()
         vm.setEducation(education: sender.configuration?.title ?? "學士")
         vm.sentSelectedEducation = { [weak self] education in
             self?.viewModel?.updateEducation(education)
