@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RegisterViewModel {
+class RegisterVM {
     
     var errorMessage: ((String) -> Void)?
     var registerSuccess: ((User) -> Void)?
