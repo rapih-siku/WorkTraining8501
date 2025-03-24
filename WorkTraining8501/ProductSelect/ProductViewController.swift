@@ -45,4 +45,11 @@ class ProductViewController: UIViewController {
         
         present(ProductBottomSheetVC, animated: true)
     }
+    
+    @IBAction func toBooking(_ sender: Any) {
+        let showAdVC = storyboard?.instantiateViewController(withIdentifier: "ShowAdViewController") as! ShowAdViewController
+        showAdVC.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(showAdVC, animated: true)
+    }
+    
 }

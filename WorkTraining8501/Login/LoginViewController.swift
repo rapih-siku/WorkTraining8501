@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 方便測試用
+        account.text = "Q1234"
+        password.text = "Q1234567"
         
         account.delegate = self
         password.delegate = self
