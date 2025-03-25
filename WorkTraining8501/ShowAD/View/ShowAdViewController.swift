@@ -16,9 +16,7 @@ class ShowAdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adCategories.dataSource = self
-        adCategories.delegate = self
-        
+        setupUI()
         bindViewModel()
     }
 }
@@ -42,5 +40,12 @@ extension ShowAdViewController : UITableViewDataSource, UITableViewDelegate {
 extension ShowAdViewController {
     private func bindViewModel() {
         viewModel = ShowAdVM()
+    }
+    
+    private func setupUI() {
+        adCategories.dataSource = self
+        adCategories.delegate = self
+        let adCategoryTableViewCell = UINib(nibName: AdCategoryTableViewCell.identifier, bundle: nil)
+        adCategories.register(adCategoryTableViewCell, forCellReuseIdentifier: AdCategoryTableViewCell.identifier)
     }
 }

@@ -19,8 +19,7 @@ class AdCategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ads.delegate = self
-        ads.dataSource = self
+        setupUI()
     }
     
     override func layoutSubviews() {
@@ -40,7 +39,7 @@ extension AdCategoryTableViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdCollectionViewCell.reuseIdentifier, for: indexPath) as? AdCollectionViewCell else { fatalError() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdCollectionViewCell.identifier, for: indexPath) as? AdCollectionViewCell else { fatalError() }
         let vm = viewModel?.collectionViewCellVMs[indexPath.row]
         cell.setCell(viewModel: vm)
         return cell
@@ -48,5 +47,16 @@ extension AdCategoryTableViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(viewModel?.adItems?[indexPath.row].itemText ?? ""):$\(viewModel?.adItems?[indexPath.row].itemPrice ?? 0)起")
+    }
+}
+
+extension AdCategoryTableViewCell {
+    
+    private func setupUI() {
+        ads.delegate = self
+        ads.dataSource = self
+        
+        let adCollectionViewCell = UINib(nibName: AdCollectionViewCell.identifier, bundle: nil)
+        ads.register(adCollectionViewCell, forCellWithReuseIdentifier: AdCollectionViewCell.identifier)
     }
 }
