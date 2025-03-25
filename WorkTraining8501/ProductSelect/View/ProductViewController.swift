@@ -28,10 +28,11 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func selectCustomerType(_ sender: Any) {
-        let ProductBottomSheetVC = storyboard?.instantiateViewController(withIdentifier: "ProductBottomSheetViewController") as! ProductBottomSheetViewController
-        if let sheetPresentationController = ProductBottomSheetVC.sheetPresentationController {
+        let productBottomSheetVC = storyboard?.instantiateViewController(withIdentifier: "ProductBottomSheetViewController") as! ProductBottomSheetViewController
+        
+        if let sheetPresentationController = productBottomSheetVC.sheetPresentationController {
             sheetPresentationController.detents = [.custom(resolver: { context in
-                return ProductBottomSheetVC.getVCTotalHeight()
+                return productBottomSheetVC.getVCTotalHeight()
             })]
         }
         
@@ -41,9 +42,17 @@ class ProductViewController: UIViewController {
             let title = self?.viewModel?.productCustomizationTitle()
             self?.productCustomization.configuration?.title = title
         }
-        ProductBottomSheetVC.setVC(viewModel: vm)
+        productBottomSheetVC.setVC(viewModel: vm)
         
-        present(ProductBottomSheetVC, animated: true)
+        present(productBottomSheetVC, animated: true)
+    }
+    
+    @IBAction func toChatRoom(_ sender: Any) {
+        let chatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
+        let vm = ChatRoomVM()
+        vm.chatContent = vm.loadMessagesData()
+        chatRoomVC.setVC(viewModel: vm)
+        self.navigationController?.pushViewController(chatRoomVC, animated: true)
     }
     
     @IBAction func toBooking(_ sender: Any) {
