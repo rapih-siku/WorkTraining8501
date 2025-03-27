@@ -7,14 +7,14 @@
 
 import Foundation
 
-class ShowAdVM {
+class ShowAdViewModel {
     
     var adModules: [Module] = []
-    var cellVMs: [AdCategoryTableViewCellVM] = []
+    var cellVMs: [AdCategoryTableViewCellViewModel] = []
     
     init() {
         fetchAds(completion: {
-            self.cellVMs = self.adModules.map({AdCategoryTableViewCellVM(adModule: $0)})
+            self.cellVMs = self.adModules.map({AdCategoryTableViewCellViewModel(adModule: $0)})
         })
     }
     

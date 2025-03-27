@@ -16,7 +16,7 @@ class selectionTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "\(selectionTableViewCell.self)"
     
-    private var viewModel: SelectionTableViewCellVM?
+    private var viewModel: SelectionTableViewCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +24,7 @@ class selectionTableViewCell: UITableViewCell {
         addButton.tintColor = UIColor(red: 170/255, green: 96/255, blue: 200/255, alpha: 1)
     }
     
-    func setCell(viewModel: SelectionTableViewCellVM) {
+    func setCell(viewModel: SelectionTableViewCellViewModel) {
         self.viewModel = viewModel
         title.text = viewModel.title
         count.text = viewModel.count

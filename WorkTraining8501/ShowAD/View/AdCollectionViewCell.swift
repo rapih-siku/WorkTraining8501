@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class AdCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var background: UIView!
@@ -18,7 +16,7 @@ class AdCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "\(AdCollectionViewCell.self)"
     
-    private var viewModel: AdCollectionViewCellVM?
+    private var viewModel: AdCollectionViewCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +24,7 @@ class AdCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
-    func setCell(viewModel: AdCollectionViewCellVM?) {
+    func setCell(viewModel: AdCollectionViewCellViewModel?) {
         self.viewModel = viewModel
         adText.text = viewModel?.text
         price.attributedText = viewModel?.price
@@ -36,6 +34,9 @@ class AdCollectionViewCell: UICollectionViewCell {
             }
         })
     }
+}
+
+extension AdCollectionViewCell {
     
     private func setupUI() {
         background.layer.cornerRadius = 5

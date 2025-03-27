@@ -8,7 +8,7 @@
 import UIKit
 
 extension ChatRoomViewController {
-    func setVC(viewModel: ChatRoomVM) {
+    func setVC(viewModel: ChatRoomViewModel) {
         self.viewModel = viewModel
     }
 }
@@ -20,7 +20,7 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var showStickers: UICollectionView!
     @IBOutlet weak var backgroundHeight: NSLayoutConstraint!
     
-    private var viewModel: ChatRoomVM?
+    private var viewModel: ChatRoomViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

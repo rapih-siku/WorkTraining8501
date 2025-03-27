@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LoginVM {
+class LoginViewModel {
     var errorMessage: ((String) -> Void)?
     var loginSuccessMessage: ((String) -> Void)?
     

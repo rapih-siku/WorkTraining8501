@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductVM {
+class ProductViewModel {
     
     var currentTravelersInfos = [
         TravelersInfo(travelerType: "大人",age: "(12+)", count: 1),

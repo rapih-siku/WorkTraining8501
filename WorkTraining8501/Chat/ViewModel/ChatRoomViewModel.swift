@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ChatRoomVM {
+class ChatRoomViewModel {
     
     var chatContent: [Message] = []
     var userName = "Labe"

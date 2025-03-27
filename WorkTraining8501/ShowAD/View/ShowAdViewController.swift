@@ -11,7 +11,7 @@ class ShowAdViewController: UIViewController {
     
     @IBOutlet weak var adCategories: UITableView!
     
-    private var viewModel: ShowAdVM?
+    private var viewModel: ShowAdViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ extension ShowAdViewController : UITableViewDataSource, UITableViewDelegate {
 
 extension ShowAdViewController {
     private func bindViewModel() {
-        viewModel = ShowAdVM()
+        viewModel = ShowAdViewModel()
     }
     
     private func setupUI() {

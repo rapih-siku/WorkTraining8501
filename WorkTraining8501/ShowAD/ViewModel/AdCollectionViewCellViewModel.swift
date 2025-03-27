@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AdCollectionViewCellVM {
+class AdCollectionViewCellViewModel {
     
     var adItem: Item?
     var text: String? {
