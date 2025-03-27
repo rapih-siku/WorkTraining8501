@@ -484,6 +484,9 @@
                                         <connections>
                                             <action selector="toBooking:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="e7L-rn-QDq"/>
 
+                                        </connections>
+                                    </button>
+
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoF-rE-Idw">
                                         <rect key="frame" x="8" y="232" width="53" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -562,6 +565,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPM-e4-3zT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="254" y="1653"/>
+        </scene>
 
         <!--Chat Room View Controller-->
         <scene sceneID="CtU-Wb-A8o">
