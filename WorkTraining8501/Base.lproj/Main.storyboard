@@ -473,6 +473,20 @@
                                             <action selector="selectCustomerType:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="0zp-dB-aXr"/>
                                         </connections>
                                     </button>
+
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3L-uX-bFz">
+                                        <rect key="frame" x="10" y="381" width="58" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="訂房"/>
+                                        <connections>
+                                            <action selector="toBooking:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="e7L-rn-QDq"/>
+
+                                        </connections>
+                                    </button>
+
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoF-rE-Idw">
                                         <rect key="frame" x="8" y="232" width="53" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -481,6 +495,7 @@
                                         <buttonConfiguration key="configuration" style="plain" image="ellipsis.message.fill" catalog="system"/>
                                         <connections>
                                             <action selector="toChatRoom:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="tbQ-ur-10c"/>
+
                                         </connections>
                                     </button>
                                 </subviews>
@@ -508,13 +523,50 @@
                     <connections>
                         <outlet property="productCustomization" destination="62u-wY-pgb" id="fla-l6-W2p"/>
                         <segue destination="GDV-AM-Wgw" kind="presentation" identifier="showProductCustomization" id="zxC-q3-Vgn"/>
+
+                        <segue destination="DAe-nO-t59" kind="push" id="HBd-mU-5Yt"/>
+
                         <segue destination="cQ4-Tc-y7W" kind="show" id="why-KJ-QpY"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqy-I2-qwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="254" y="804"/>
         </scene>
+
+        <!--訂房-->
+        <scene sceneID="85s-jd-8jH">
+            <objects>
+                <viewController storyboardIdentifier="ShowAdViewController" id="DAe-nO-t59" customClass="ShowAdViewController" customModule="WorkTraining8501" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zsT-aS-oVu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cUo-kr-lI8">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UNT-id-u6a"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UNT-id-u6a" firstAttribute="bottom" secondItem="cUo-kr-lI8" secondAttribute="bottom" id="60k-3a-eb8"/>
+                            <constraint firstItem="cUo-kr-lI8" firstAttribute="top" secondItem="UNT-id-u6a" secondAttribute="top" id="PAJ-Et-MJq"/>
+                            <constraint firstItem="UNT-id-u6a" firstAttribute="trailing" secondItem="cUo-kr-lI8" secondAttribute="trailing" id="Upg-b7-YVE"/>
+                            <constraint firstItem="cUo-kr-lI8" firstAttribute="leading" secondItem="UNT-id-u6a" secondAttribute="leading" id="hOq-Oz-fE7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="訂房" id="GUK-5i-B3G"/>
+                    <connections>
+                        <outlet property="adCategories" destination="cUo-kr-lI8" id="DR3-ks-Tp6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPM-e4-3zT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="1653"/>
+        </scene>
+
         <!--Chat Room View Controller-->
         <scene sceneID="CtU-Wb-A8o">
             <objects>
@@ -896,6 +948,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iW-2z-3up" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="252.67175572519082" y="1527.4647887323945"/>
+
         </scene>
         <!--Product Bottom Sheet View Controller-->
         <scene sceneID="h5X-l7-bDD">
@@ -1041,7 +1094,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

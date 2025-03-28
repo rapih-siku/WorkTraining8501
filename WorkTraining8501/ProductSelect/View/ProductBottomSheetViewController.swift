@@ -8,7 +8,7 @@
 import UIKit
 
 extension ProductBottomSheetViewController {
-    func setVC(viewModel:ProductBottomSheetVM) {
+    func setVC(viewModel:ProductBottomSheetViewModel) {
         self.viewModel = viewModel
     }
 }
@@ -17,7 +17,7 @@ class ProductBottomSheetViewController: UIViewController {
 
     @IBOutlet weak var selectionTableView: UITableView!
     
-    private var viewModel: ProductBottomSheetVM?
+    private var viewModel: ProductBottomSheetViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
