@@ -7,18 +7,8 @@
 
 import UIKit
 
-class PopCityVM {
-    var popCities: [ModuleItem] = []
-    var collectionViewCellVMs: [ShowPopCityCollectionViewCellVM] = []
-    
-    init(popCityData: [ModuleItem]) {
-        self.popCities = popCityData
-        self.collectionViewCellVMs = popCityData.map { ShowPopCityCollectionViewCellVM(popCity: $0) }
-    }
-}
-
 extension PopCityView {
-    func setView(viewModel: PopCityVM) {
+    func setView(viewModel: PopCityViewModel) {
         self.viewModel = viewModel
         showPopCity.reloadData()
     }
@@ -31,7 +21,7 @@ class PopCityView: UIView {
     
     static let identifier = "PopCityView"
     
-    private var viewModel: PopCityVM?
+    var viewModel: PopCityViewModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,11 +32,16 @@ class PopCityView: UIView {
         super.init(coder: coder)
         customInit()
     }
+    
+    @IBAction func tapToAllCity(_ sender: Any) {
+        viewModel?.didTapButton?()
+    }
 }
 
 extension PopCityView: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.popCities.count ?? 0
+        return viewModel?.popCitiesCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U28-Uw-eCI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5GG-Ef-KUo">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -481,7 +481,6 @@
                                         <buttonConfiguration key="configuration" style="plain" image="ellipsis.message.fill" catalog="system"/>
                                         <connections>
                                             <action selector="toChatRoom:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="tbQ-ur-10c"/>
-
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3L-uX-bFz">
@@ -493,7 +492,17 @@
                                         <buttonConfiguration key="configuration" style="plain" title="訂房"/>
                                         <connections>
                                             <action selector="toBooking:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="e7L-rn-QDq"/>
-
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxo-f5-atz">
+                                        <rect key="frame" x="2" y="395" width="92" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="搜尋城市"/>
+                                        <connections>
+                                            <action selector="toShowCity:" destination="3lm-QQ-XHe" eventType="touchUpInside" id="TuE-tK-0Ll"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -521,18 +530,15 @@
                     <connections>
                         <outlet property="productCustomization" destination="62u-wY-pgb" id="fla-l6-W2p"/>
                         <segue destination="GDV-AM-Wgw" kind="presentation" identifier="showProductCustomization" id="zxC-q3-Vgn"/>
-
                         <segue destination="DAe-nO-t59" kind="push" id="HBd-mU-5Yt"/>
                         <segue destination="cQ4-Tc-y7W" kind="show" id="why-KJ-QpY"/>
                         <segue destination="U28-Uw-eCI" kind="push" id="zwz-pM-boM"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqy-I2-qwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="254" y="804"/>
         </scene>
-
         <!--訂房-->
         <scene sceneID="85s-jd-8jH">
             <objects>
@@ -564,7 +570,6 @@
             </objects>
             <point key="canvasLocation" x="1044" y="1525"/>
         </scene>
-
         <!--Chat Room View Controller-->
         <scene sceneID="CtU-Wb-A8o">
             <objects>
@@ -924,7 +929,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cBg-6f-yFo">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="e71-HZ-agJ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Y4c-Xo-3M8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Y4c-Xo-3M8">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -945,9 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iW-2z-3up" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="254" y="1526"/>
-
         </scene>
         <!--Product Bottom Sheet View Controller-->
         <scene sceneID="h5X-l7-bDD">
@@ -1095,26 +1098,49 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="wsa-hO-Cwm"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="熱門城市"/>
+                                        <connections>
+                                            <action selector="toPopCity:" destination="U28-Uw-eCI" eventType="touchUpInside" id="739-7u-yYJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cav-Ea-MdO">
                                         <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="CY0-7Z-bFa"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="全部目的地"/>
+                                        <connections>
+                                            <action selector="toAllCity:" destination="U28-Uw-eCI" eventType="touchUpInside" id="Qhg-WK-IFb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0oo-hS-8HM">
-                                <rect key="frame" x="0.0" y="158" width="393" height="694"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFt-cB-Jwz">
+                                <rect key="frame" x="0.0" y="148" width="393" height="3"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="704.66666666666663" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xXV-jF-Gz6">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="694"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIh-oi-BCI">
+                                        <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="3"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3" id="qqn-Ew-srt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="Y45-nN-c1e"/>
+                                    <constraint firstItem="VIh-oi-BCI" firstAttribute="leading" secondItem="bFt-cB-Jwz" secondAttribute="leading" id="eQ2-oN-1fv"/>
+                                    <constraint firstItem="VIh-oi-BCI" firstAttribute="top" secondItem="bFt-cB-Jwz" secondAttribute="top" id="eyG-JY-2x9"/>
+                                    <constraint firstAttribute="bottom" secondItem="VIh-oi-BCI" secondAttribute="bottom" id="iKe-Xy-R9m"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0oo-hS-8HM">
+                                <rect key="frame" x="0.0" y="151" width="393" height="701"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="704.66666666666663" translatesAutoresizingMaskIntoConstraints="NO" id="xXV-jF-Gz6">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="694"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -1131,18 +1157,26 @@
                         <viewLayoutGuide key="safeArea" id="XG4-uj-88h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0oo-hS-8HM" firstAttribute="top" secondItem="744-SZ-ddb" secondAttribute="bottom" constant="10" id="0HV-6f-NUu"/>
+                            <constraint firstItem="bFt-cB-Jwz" firstAttribute="top" secondItem="744-SZ-ddb" secondAttribute="bottom" id="0HV-6f-NUu"/>
                             <constraint firstItem="744-SZ-ddb" firstAttribute="top" secondItem="XG4-uj-88h" secondAttribute="top" constant="10" id="SF5-Xt-MpB"/>
+                            <constraint firstItem="bFt-cB-Jwz" firstAttribute="leading" secondItem="XG4-uj-88h" secondAttribute="leading" id="Tbe-9b-KQ8"/>
                             <constraint firstItem="0oo-hS-8HM" firstAttribute="trailing" secondItem="XG4-uj-88h" secondAttribute="trailing" id="UMX-wh-YuC"/>
+                            <constraint firstItem="VIh-oi-BCI" firstAttribute="width" secondItem="N1m-Vu-xqF" secondAttribute="width" id="VPi-bU-d0d"/>
                             <constraint firstItem="0oo-hS-8HM" firstAttribute="leading" secondItem="XG4-uj-88h" secondAttribute="leading" id="aPv-aK-tdX"/>
                             <constraint firstAttribute="bottom" secondItem="0oo-hS-8HM" secondAttribute="bottom" id="bjd-dX-BfH"/>
+                            <constraint firstItem="0oo-hS-8HM" firstAttribute="top" secondItem="bFt-cB-Jwz" secondAttribute="bottom" id="eMF-19-REv"/>
                             <constraint firstItem="XG4-uj-88h" firstAttribute="trailing" secondItem="744-SZ-ddb" secondAttribute="trailing" id="ouX-tP-6G0"/>
+                            <constraint firstItem="bFt-cB-Jwz" firstAttribute="width" secondItem="XG4-uj-88h" secondAttribute="width" id="uOb-2H-JUG"/>
                             <constraint firstItem="744-SZ-ddb" firstAttribute="leading" secondItem="XG4-uj-88h" secondAttribute="leading" id="xEc-VK-ho8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UOQ-jZ-xfv"/>
                     <connections>
+                        <outlet property="allCity" destination="cav-Ea-MdO" id="Zb8-Ek-YkN"/>
                         <outlet property="pageScroll" destination="0oo-hS-8HM" id="WFP-Dg-sgR"/>
+                        <outlet property="pages" destination="xXV-jF-Gz6" id="OpK-Gr-DeG"/>
+                        <outlet property="popCity" destination="N1m-Vu-xqF" id="gq0-lk-gBg"/>
+                        <outlet property="scrollLineLeading" destination="eQ2-oN-1fv" id="T24-5e-nZC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2P-DP-gU8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

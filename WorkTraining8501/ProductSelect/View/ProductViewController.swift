@@ -23,6 +23,7 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem?.title = "登出"
+        navigationItem.backButtonTitle = ""
         
         productCustomization.configuration?.title = viewModel?.productCustomizationTitle()
     }
@@ -53,5 +54,11 @@ class ProductViewController: UIViewController {
         vm.chatContent = vm.loadMessagesData()
         chatRoomVC.setVC(viewModel: vm)
         self.navigationController?.pushViewController(chatRoomVC, animated: true)
+    }
+    
+    @IBAction func toShowCity(_ sender: Any) {
+        let showCitiesVC = self.storyboard?.instantiateViewController(withIdentifier: "ShowCitiesViewController") as! ShowCitiesViewController
+        navigationController?.pushViewController(showCitiesVC, animated: true)
+        
     }
 }

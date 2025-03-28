@@ -7,18 +7,8 @@
 
 import UIKit
 
-class AllCityVM {
-    var allCities: [Country] = []
-    var tableViewCellVMs: [ShowAllCityTableViewCellVM] = []
-    
-    init(allCities: [Country]) {
-        self.allCities = allCities
-//        self.tableViewCellVMs = allCities.map { ShowAllCityTableViewCellVM(city: $0) }
-    }
-}
-
 extension AllCityView {
-    func setView(viewModel: AllCityVM) {
+    func setView(viewModel: AllCityViewModel) {
         self.viewModel = viewModel
         showAllCity.reloadData()
     }
@@ -30,31 +20,55 @@ class AllCityView: UIView {
     
     static let identifier = "\(AllCityView.self)"
     
-    private var viewModel: AllCityVM?
+    private var viewModel: AllCityViewModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        customInit()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        customInit()
     }
 }
 
 extension AllCityView: UITableViewDataSource, UITableViewDelegate {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.allCities.count ?? 0
+        return viewModel?.allCitiesCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
-        return viewModel.allCities[section].isExpanded ? viewModel.allCities[section].cityList.count : 0
+        return viewModel.fetchCityListIsExpanded(at: section) ? viewModel.allCities[section].cityList.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowAllCityTableViewCell.identifier) as? ShowAllCityTableViewCell else { fatalError()}
-        
+        let vm = viewModel?.createShowAllCityTableViewCellVM(at: indexPath)
+        cell.selectionStyle = .none
+        cell.setCell(viewModel: vm)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = CountrySectionHeaderView()
+        guard let country = viewModel?.allCities[section] else { return nil }
+        let vm = CountrySectionHeaderViewModel(country: country)
+        header.setView(viewModel: vm)
+        header.setSectionHeaderView()
+        vm.onTap = { [weak self] in
+            guard let self = self else { return }
+            viewModel?.allCities[section].isExpanded.toggle()
+            self.showAllCity.reloadSections([section], with: .automatic)
+        }
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tapCityName = viewModel?.allCities[indexPath.section].cityList[indexPath.row].cityName ?? ""
+        print("點擊了\(tapCityName)")
     }
 }
 
@@ -62,9 +76,7 @@ extension AllCityView {
     
     private func customInit() {
         let nib = UINib(nibName: String(describing: AllCityView.identifier), bundle: nil)
-        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
-            fatalError("\(self)載入失敗")
-        }
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("\(self)載入失敗") }
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
