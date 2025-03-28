@@ -33,6 +33,10 @@ class PopCityView: UIView {
         customInit()
     }
     
+    override func layoutSubviews() {
+        updateUI()
+    }
+    
     @IBAction func tapToAllCity(_ sender: Any) {
         viewModel?.didTapButton?()
     }
@@ -73,13 +77,15 @@ extension PopCityView {
         showPopCity.dataSource = self
         showPopCity.register(UINib(nibName: ShowPopCityCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: ShowPopCityCollectionViewCell.identifier)
         showPopCity.isScrollEnabled = false
-        
+    }
+    
+    private func updateUI() {
         let itemSpacing: CGFloat = 10
         let showItemCount: CGFloat = 3
-        let sideInset: CGFloat = 10
+        let sideInset: CGFloat = 20
         guard let flowLayout = showPopCity.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let totalSpacing = (showItemCount - 1) * itemSpacing + sideInset * 2
-        let itemWidth = floor((showPopCity.bounds.width - totalSpacing) / showItemCount)
+        let itemWidth = floor((self.bounds.width - totalSpacing) / showItemCount)
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth * 0.8)
         flowLayout.minimumLineSpacing = itemSpacing
         flowLayout.minimumInteritemSpacing = itemSpacing

@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lTq-us-QGA">
-                    <rect key="frame" x="5" y="69" width="383" height="674"/>
+                    <rect key="frame" x="0.0" y="69" width="393" height="674"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aCV-Ml-Vvl">
                         <size key="itemSize" width="128" height="128"/>
@@ -45,13 +45,13 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lTq-us-QGA" secondAttribute="trailing" constant="5" id="WaA-Ne-iqv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lTq-us-QGA" secondAttribute="trailing" id="WaA-Ne-iqv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qJM-Uu-6L0" secondAttribute="trailing" constant="20" id="bYp-Ae-hzd"/>
                 <constraint firstItem="qJM-Uu-6L0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="eDf-cp-lC9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qJM-Uu-6L0" secondAttribute="bottom" constant="20" id="jkH-GV-uVM"/>
                 <constraint firstItem="qJM-Uu-6L0" firstAttribute="top" secondItem="lTq-us-QGA" secondAttribute="bottom" constant="20" id="ka5-2Y-x4u"/>
                 <constraint firstItem="lTq-us-QGA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="l7Z-zg-MRQ"/>
-                <constraint firstItem="lTq-us-QGA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="pgq-sG-eBc"/>
+                <constraint firstItem="lTq-us-QGA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pgq-sG-eBc"/>
             </constraints>
             <point key="canvasLocation" x="74" y="82"/>
         </view>

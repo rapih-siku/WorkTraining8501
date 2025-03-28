@@ -46,7 +46,7 @@ extension ShowCitiesViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.2) {
             self.scrollLineLeading.constant = offset.x / 2
             self.view.layoutIfNeeded()
         }
