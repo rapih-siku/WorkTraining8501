@@ -54,13 +54,13 @@ extension AllCityView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = CountrySectionHeaderView()
-        guard let country = viewModel?.allCities[section] else { return nil }
-        let vm = CountrySectionHeaderViewModel(country: country)
+        guard let vm = viewModel?.countrySectionHeaderVMs[section] else { return UITableViewCell() }
         header.setView(viewModel: vm)
         header.setSectionHeaderView()
         vm.onTap = { [weak self] in
             guard let self = self else { return }
             viewModel?.allCities[section].isExpanded.toggle()
+            vm.country?.isExpanded.toggle()
             self.showAllCity.reloadSections([section], with: .automatic)
         }
         return header
