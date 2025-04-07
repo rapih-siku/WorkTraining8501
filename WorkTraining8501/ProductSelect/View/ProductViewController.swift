@@ -61,4 +61,9 @@ class ProductViewController: UIViewController {
         navigationController?.pushViewController(showAdVC, animated: true)
     }
     
+    @IBAction func toSearchHotel(_ sender: Any) {
+        let searchHotelVC = storyboard?.instantiateViewController(withIdentifier: "SearchHotelViewController") as! SearchHotelViewController
+        searchHotelVC.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(searchHotelVC, animated: true)
+    }
 }

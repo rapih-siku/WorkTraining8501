@@ -7,29 +7,6 @@
 
 import UIKit
 
-class SearchHotelViewModel {
-    var hotels: [Hotel] = []
-    var showHotelTableViewVMs: [ShowHotelTableViewCellViewModel] = []
-    
-    init() {
-        fetchHotelsData {
-            self.showHotelTableViewVMs = self.hotels.map { ShowHotelTableViewCellViewModel(hotel: $0) }
-        }
-    }
-    
-    func fetchHotelsData(completion: (() -> Void)? = nil) {
-        guard let url = Bundle.main.url(forResource: "HotelList", withExtension: "json") else { fatalError("🔴找不到資料") }
-        do {
-            let data = try Data(contentsOf: url)
-            let response = try JSONDecoder().decode(HotelsData.self, from: data)
-            hotels = response.hotelList.sorted { $0.retailPriceValue < $1.retailPriceValue }
-            completion?()
-        } catch {
-            print("🔴資料解析失敗：\(error.localizedDescription)")
-        }
-    }
-}
-
 class SearchHotelViewController: UIViewController {
     
     @IBOutlet weak var showHotel: UITableView!
@@ -38,34 +15,82 @@ class SearchHotelViewController: UIViewController {
     @IBOutlet weak var sortOptionHeight: NSLayoutConstraint!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var backgroundView: UIView!
-    
-    var sortOptionIsHidden = true
+    @IBOutlet weak var priceLowToHigh: UIButton!
+    @IBOutlet weak var priceHighToLow: UIButton!
     
     private var viewModel: SearchHotelViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         bindViewModel()
         setupUI()
     }
     
-    @IBAction func sortHotels(_ sender: Any) {
-        
-        if sortOptionIsHidden == true {
-            self.sortOptionHeight.constant = 85
-            self.stackView.isHidden = false
-            self.backgroundView.isHidden = false
-        } else {
-            self.sortOptionHeight.constant = 0
-            self.stackView.isHidden = true
-            self.backgroundView.isHidden = true
+    @IBAction func showSortDataView(_ sender: Any) {
+        toggleSortDataView(isHidden: !(viewModel?.sortOptionIsHidden ?? true))
+        viewModel?.sortOptionIsHidden.toggle()
+    }
+    
+    @IBAction func sortData(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            viewModel?.isPriceDescending = false
+        case 1:
+            viewModel?.isPriceDescending = true
+        default:
+            break
         }
-        sortOptionIsHidden.toggle()
+        
+        viewModel?.sortData(completion: { hotels in
+            self.updateUI()
+            
+            self.priceHighToLow.tintColor = self.viewModel?.isPriceDescending ?? false ? .purple : .black
+            self.priceLowToHigh.tintColor = self.viewModel?.isPriceDescending ?? false ? .black : .purple
+            
+            self.toggleSortDataView(isHidden: true)
+            self.viewModel?.sortOptionIsHidden = true
+        })
+    }
+    
+    @IBAction func showSearchFilter(_ sender: Any) {
+        self.toggleSortDataView(isHidden: true)
+        self.viewModel?.sortOptionIsHidden = true
+        
+        let bottomSheetVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FiltersBottomSheetViewController") as! FiltersBottomSheetViewController
+        if let sheetPresentationController = bottomSheetVC.sheetPresentationController {
+            sheetPresentationController.detents = [ .custom(resolver: { context in
+                return bottomSheetVC.getBottomSheetHeight()
+            })]
+        }
+        let vm = FiltersBottomSheetViewModel(
+            minPrice: viewModel?.minPrice ?? 0,
+            maxPrice: viewModel?.maxPrice ?? 0,
+            leftThumbPosition: viewModel?.leftThumbPosition ?? 0,
+            rightThumbPosition: viewModel?.rightThumbPosition ?? 0
+        )
+        
+        vm.tapFilter = { [weak self] minPrice, maxPrice in
+            let filteredHotels = self?.viewModel?.originalHotelsData.filter({ hotel in
+                (minPrice...maxPrice).contains(hotel.retailPriceValue)
+            })
+            self?.viewModel?.hotels = filteredHotels ?? []
+            self?.viewModel?.sortData(completion: { hotels in
+                self?.updateUI()
+            })
+        }
+        
+        vm.setThumbPosition = { [weak self] leftThumbPosition, rightThumbPosition in
+            self?.viewModel?.leftThumbPosition = leftThumbPosition
+            self?.viewModel?.rightThumbPosition = rightThumbPosition
+        }
+        
+        bottomSheetVC.setVC(viewModel: vm)
+        present(bottomSheetVC, animated: true)
     }
 }
 
 extension SearchHotelViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.hotels.count ?? 0
     }
@@ -76,6 +101,10 @@ extension SearchHotelViewController: UITableViewDelegate, UITableViewDataSource 
         let vm = viewModel?.showHotelTableViewVMs[indexPath.row]
         cell.setCell(viewModel: vm)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("點擊了\(viewModel?.hotels[indexPath.row].hotelName ?? "")")
     }
 }
 
@@ -92,16 +121,15 @@ extension SearchHotelViewController {
         showHotel.register(showHotelTableViewCell, forCellReuseIdentifier: ShowHotelTableViewCell.identifier)
         showHotel.tableHeaderView = createHeaderView()
         
-        setupButton(button: sortData, systemName: "arrow.up.arrow.down", title: "排序")
-        setupButton(button: filterData, systemName: "slider.horizontal.3", title: "篩選")
+        setupMainButton(button: sortData, imageSystemName: "arrow.up.arrow.down", title: "排序")
+        setupMainButton(button: filterData, imageSystemName: "slider.horizontal.3", title: "篩選")
         
-        self.sortOptionHeight.constant = 0
-        self.stackView.isHidden = true
+        toggleSortDataView(isHidden: true)
     }
     
-    private func setupButton(button: UIButton, systemName: String, title: String) {
+    private func setupMainButton(button: UIButton, imageSystemName: String, title: String) {
         let purpleColor = UIColor(red: 170/255, green: 96/255, blue: 200/255, alpha: 1)
-        let sortingImage = UIImage(systemName: systemName)?
+        let buttonImage = UIImage(systemName: imageSystemName)?
             .withConfiguration(UIImage.SymbolConfiguration(pointSize: 15))
             .withRenderingMode(.alwaysTemplate)
         let buttonTitle = NSAttributedString(
@@ -110,9 +138,31 @@ extension SearchHotelViewController {
                 .foregroundColor: UIColor.black,
                 .font: UIFont.systemFont(ofSize: 15)
             ])
-        button.setImage(sortingImage, for: .normal)
+        button.setImage(buttonImage, for: .normal)
         button.tintColor = purpleColor
         button.setAttributedTitle(buttonTitle, for: .normal)
+    }
+    
+    private func updateUI() {
+        showHotel.reloadData()
+        showHotel.tableHeaderView = createHeaderView()
+        if showHotel.contentOffset.y != 0 {
+            DispatchQueue.main.async {
+                self.showHotel.setContentOffset(.zero, animated: true)
+            }
+        }
+    }
+    
+    private func toggleSortDataView(isHidden: Bool) {
+        if isHidden == false {
+            self.sortOptionHeight.constant = 85
+            self.stackView.isHidden = false
+            self.backgroundView.isHidden = false
+        } else {
+            self.sortOptionHeight.constant = 0
+            self.stackView.isHidden = true
+            self.backgroundView.isHidden = true
+        }
     }
     
     private func createHeaderView() -> UIView {
