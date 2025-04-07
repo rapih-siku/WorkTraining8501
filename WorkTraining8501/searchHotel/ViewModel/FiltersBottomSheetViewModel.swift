@@ -13,8 +13,8 @@ class FiltersBottomSheetViewModel {
     var maxPrice: CGFloat?
     var sliderMinValue: Int?
     var sliderMaxValue: Int?
-    var leftThumbPosition: Double?
-    var rightThumbPosition: Double?
+    var leftThumbConstant: Double?
+    var rightThumbConstant: Double?
     
     var tapFilter: ((Int, Int) -> Void)?
     var setThumbPosition: ((Double, Double) -> Void)?
@@ -24,7 +24,7 @@ class FiltersBottomSheetViewModel {
         self.maxPrice = CGFloat(maxPrice)
         self.sliderMinValue = minPrice
         self.sliderMaxValue = maxPrice
-        self.leftThumbPosition = leftThumbPosition
-        self.rightThumbPosition = rightThumbPosition
+        self.leftThumbConstant = leftThumbPosition
+        self.rightThumbConstant = rightThumbPosition
     }
 }

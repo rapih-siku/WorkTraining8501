@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5GG-Ef-KUo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="13A-jW-E2x">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -1282,33 +1282,49 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPp-uC-zPh" userLabel="Slide Rails View">
                                         <rect key="frame" x="10" y="18.666666666666657" width="333" height="3"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaa-Y2-fsm" userLabel="Range View">
+                                                <rect key="frame" x="7" y="-0.66666666666651508" width="319" height="3"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="T9u-c7-JCB"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaa-Y2-fsm" userLabel="Range View">
-                                        <rect key="frame" x="17" y="18.666666666666664" width="319" height="3"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMu-7f-OK9" userLabel="Left Thumb View">
-                                        <rect key="frame" x="5" y="10" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMu-7f-OK9" userLabel="Left Thumb View">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="FiJ-E9-wvb"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="QIM-AM-QaE"/>
+                                            <constraint firstAttribute="height" constant="20" id="VW8-dV-LIq"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="qc5-x3-9U2"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pV-Ai-uhn" userLabel="Right Thumb View">
-                                        <rect key="frame" x="327" y="10" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pV-Ai-uhn" userLabel="Right Thumb View">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="0zB-4h-5CO"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="92z-uM-nLL"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="TyW-Tf-FQu"/>
+                                            <constraint firstAttribute="width" constant="20" id="d4E-ZM-aYP"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="WMu-7f-OK9" firstAttribute="centerY" secondItem="YPp-uC-zPh" secondAttribute="centerY" id="3JS-Rs-iT8"/>
+                                    <constraint firstItem="1pV-Ai-uhn" firstAttribute="leading" secondItem="YPp-uC-zPh" secondAttribute="leading" id="Ge9-cy-7wL"/>
                                     <constraint firstAttribute="height" constant="40" id="HCf-GL-SlP"/>
                                     <constraint firstItem="YPp-uC-zPh" firstAttribute="leading" secondItem="G93-ac-a3k" secondAttribute="leading" constant="10" id="PEc-d8-0rF"/>
                                     <constraint firstItem="YPp-uC-zPh" firstAttribute="centerY" secondItem="G93-ac-a3k" secondAttribute="centerY" id="YMQ-ac-QXi"/>
                                     <constraint firstAttribute="trailing" secondItem="YPp-uC-zPh" secondAttribute="trailing" constant="10" id="bqf-wW-aIV"/>
+                                    <constraint firstItem="WMu-7f-OK9" firstAttribute="leading" secondItem="YPp-uC-zPh" secondAttribute="leading" id="oBy-72-WcB"/>
+                                    <constraint firstItem="1pV-Ai-uhn" firstAttribute="centerY" secondItem="YPp-uC-zPh" secondAttribute="centerY" id="vte-CR-C82"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1330,11 +1346,14 @@
                     <connections>
                         <outlet property="filter" destination="9kM-ln-9MP" id="Rzx-wD-fpi"/>
                         <outlet property="leftThumb" destination="WMu-7f-OK9" id="Wsq-0g-RHb"/>
+                        <outlet property="leftThumbLeading" destination="oBy-72-WcB" id="P0u-br-819"/>
                         <outlet property="maxPrice" destination="Dt5-yr-CDe" id="Ha0-zM-Mh4"/>
                         <outlet property="minPrice" destination="DSe-lL-OyL" id="z7u-tp-IXT"/>
                         <outlet property="priceRange" destination="eaa-Y2-fsm" id="EA6-oC-UDa"/>
                         <outlet property="rightThumb" destination="1pV-Ai-uhn" id="eNB-Ze-9vv"/>
+                        <outlet property="rightThumbLeading" destination="Ge9-cy-7wL" id="QX8-pI-MkJ"/>
                         <outlet property="sliderRails" destination="YPp-uC-zPh" id="SGp-Qm-aiT"/>
+                        <outlet property="sliderView" destination="G93-ac-a3k" id="5U3-oy-yP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stv-PA-EoL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

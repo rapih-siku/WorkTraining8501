@@ -15,6 +15,7 @@ extension FiltersBottomSheetViewController {
 
 class FiltersBottomSheetViewController: UIViewController {
     
+    @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var leftThumb: UIView!
     @IBOutlet weak var rightThumb: UIView!
     @IBOutlet weak var priceRange: UIView!
@@ -22,6 +23,8 @@ class FiltersBottomSheetViewController: UIViewController {
     @IBOutlet weak var minPrice: UILabel!
     @IBOutlet weak var maxPrice: UILabel!
     @IBOutlet weak var filter: UIButton!
+    @IBOutlet weak var leftThumbLeading: NSLayoutConstraint!
+    @IBOutlet weak var rightThumbLeading: NSLayoutConstraint!
     
     private var viewModel: FiltersBottomSheetViewModel?
     
@@ -31,22 +34,26 @@ class FiltersBottomSheetViewController: UIViewController {
         setupUI()
     }
     
+    override func viewDidLayoutSubviews() {
+        updatePriceRange()
+    }
+    
     func getBottomSheetHeight() -> CGFloat {
-        return filter.frame.maxY
+        return filter.frame.maxY + 20
     }
     
     @IBAction func filter(_ sender: Any) {
-        viewModel?.leftThumbPosition = leftThumb.frame.origin.x
-        viewModel?.rightThumbPosition = rightThumb.frame.origin.x
+        viewModel?.leftThumbConstant = leftThumbLeading.constant
+        viewModel?.rightThumbConstant = rightThumbLeading.constant
         
         viewModel?.tapFilter?(viewModel?.sliderMinValue ?? 0, viewModel?.sliderMaxValue ?? 0)
-        viewModel?.setThumbPosition?(viewModel?.leftThumbPosition ?? 0, viewModel?.rightThumbPosition ?? 0)
+        viewModel?.setThumbPosition?(viewModel?.leftThumbConstant ?? 0, viewModel?.rightThumbConstant ?? 0)
         dismiss(animated: true)
     }
     
     @IBAction func cleanSearchFilter(_ sender: Any) {
-        leftThumb.frame.origin.x = 0
-        rightThumb.frame.origin.x = sliderRails.frame.width
+        leftThumbLeading.constant = 0
+        rightThumbLeading.constant = sliderRails.frame.width - rightThumb.frame.width
         
         updatePriceRange()
     }
@@ -77,11 +84,12 @@ extension FiltersBottomSheetViewController {
         minPrice.text = "$\(formattedPrice(price: viewModel?.sliderMinValue ?? 0))"
         maxPrice.text = "$\(formattedPrice(price: viewModel?.sliderMaxValue ?? 0))"
         
-        leftThumb.frame.origin.x = viewModel?.leftThumbPosition ?? 0
-        if let position = viewModel?.rightThumbPosition, position > 0 {
-            rightThumb.frame.origin.x = position
+        leftThumbLeading.constant = viewModel?.leftThumbConstant ?? 0
+        if let position = viewModel?.rightThumbConstant, position > 0 {
+            rightThumbLeading.constant = position
         } else {
-            rightThumb.frame.origin.x = sliderRails.frame.width
+            sliderView.layoutIfNeeded()
+            rightThumbLeading.constant = sliderRails.frame.width - rightThumb.frame.width
         }
         
         updatePriceRange()
@@ -91,28 +99,30 @@ extension FiltersBottomSheetViewController {
         guard let thumb = gesture.view else { return }
         
         let translation = gesture.translation(in: sliderRails)
-        var newX = thumb.frame.origin.x + translation.x
+        gesture.setTranslation(.zero, in: sliderRails)
         let thumbWidth = thumb.frame.width
         let maxRailX = sliderRails.frame.width
         
         if thumb == leftThumb {
-            let maxRight = rightThumb.frame.minX - thumbWidth
-            newX = max(0, min(maxRight, newX))
+            var newConstant = leftThumbLeading.constant + translation.x
+            let maxRight = rightThumbLeading.constant - thumbWidth
+            newConstant = max(0, min(maxRight, newConstant))
+            leftThumbLeading.constant = newConstant
         } else {
-            let minLeft = leftThumb.frame.maxX
-            let maxRight = maxRailX
-            newX = max(minLeft, min(maxRight, newX))
+            var newConstant = rightThumbLeading.constant + translation.x
+            let minLeft = leftThumbLeading.constant + thumbWidth
+            let maxRailX = maxRailX - thumbWidth
+            newConstant = max(minLeft, min(maxRailX, newConstant))
+            rightThumbLeading.constant = newConstant
         }
         
-        thumb.frame.origin.x = newX
-        gesture.setTranslation(.zero, in: sliderRails)
-        
+        sliderView.layoutIfNeeded()
         updatePriceRange()
     }
     
     private func updatePriceRange() {
-        let leftX = leftThumb.frame.maxX
-        let rightX = rightThumb.frame.minX
+        let leftX = leftThumbLeading.constant + leftThumb.frame.width
+        let rightX = rightThumbLeading.constant
         let y = priceRange.frame.origin.y
         let height = sliderRails.frame.height
         
@@ -121,7 +131,6 @@ extension FiltersBottomSheetViewController {
         viewModel?.sliderMinValue = valueFromSlider(x: leftX)
         viewModel?.sliderMaxValue = valueFromSlider(x: rightX)
         
-        
         minPrice.text = "$\(formattedPrice(price: viewModel?.sliderMinValue ?? 0))"
         maxPrice.text = "$\(formattedPrice(price: viewModel?.sliderMaxValue ?? 0))"
     }
@@ -129,7 +138,7 @@ extension FiltersBottomSheetViewController {
     private func valueFromSlider(x: CGFloat) -> Int {
         let priceMin = viewModel?.minPrice ?? 0
         let priceMax = viewModel?.maxPrice ?? 0
-        let totalRange = sliderRails.frame.width - leftThumb.frame.width
+        let totalRange = sliderRails.frame.width - leftThumb.frame.width * 2
         let adjustedX = max(0, min(x - leftThumb.frame.width, totalRange))
         let ratio = adjustedX / totalRange
         return Int(priceMin + (priceMax - priceMin) * ratio)
