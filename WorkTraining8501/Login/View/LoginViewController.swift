@@ -16,10 +16,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var register: UIButton!
     
-    private var viewModel: LoginVM?
+    private var viewModel: LoginViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // 方便測試用
         account.text = "Q1234"
         password.text = "Q1234567"
         
@@ -39,7 +41,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func toRegister(_ sender: Any) {
         let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        let vm = RegisterVM()
+        let vm = RegisterViewModel()
         vm.registerSuccess2 = { [weak self] newUser in
             DispatchQueue.main.async {
                 print("得到新註冊的使用者資料了")
@@ -56,7 +58,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func bindViewModel() {
-        self.viewModel = LoginVM()
+        self.viewModel = LoginViewModel()
         
         viewModel?.errorMessage = { [weak self] message in
             DispatchQueue.main.async {
@@ -68,7 +70,7 @@ extension LoginViewController {
             DispatchQueue.main.async {
                 self?.showAlert(title: nil, message: message) {
                     let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
-                    let vm = ProductVM()
+                    let vm = ProductViewModel()
                     productVC.setVC(viewModel: vm)
                     self?.navigationController?.pushViewController(productVC, animated: true)
                 }

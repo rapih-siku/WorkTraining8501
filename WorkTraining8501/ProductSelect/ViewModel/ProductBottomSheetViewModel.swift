@@ -7,16 +7,16 @@
 
 import Foundation
 
-class ProductBottomSheetVM {
+class ProductBottomSheetViewModel {
     
     var travelersInfos: [TravelersInfo] = []
-    var cellVMs: [SelectionTableViewCellVM] = []
+    var cellVMs: [SelectionTableViewCellViewModel] = []
     
     var sentNewTravelersInfo: (([TravelersInfo]) -> Void)?
     
     init(list: [TravelersInfo]) {
         self.travelersInfos = list
-        cellVMs = list.map({SelectionTableViewCellVM(travelersInfo: $0)})
+        cellVMs = list.map({SelectionTableViewCellViewModel(travelersInfo: $0)})
     }
     
     func confirmSelection() {
