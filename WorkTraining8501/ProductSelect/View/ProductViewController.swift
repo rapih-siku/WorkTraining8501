@@ -23,6 +23,7 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem?.title = "登出"
+        navigationItem.backButtonTitle = ""
         
         productCustomization.configuration?.title = viewModel?.productCustomizationTitle()
     }
@@ -55,10 +56,16 @@ class ProductViewController: UIViewController {
         self.navigationController?.pushViewController(chatRoomVC, animated: true)
     }
     
+
+    @IBAction func toShowCity(_ sender: Any) {
+        let showCitiesVC = self.storyboard?.instantiateViewController(withIdentifier: "ShowCitiesViewController") as! ShowCitiesViewController
+        navigationController?.pushViewController(showCitiesVC, animated: true)
+        
+    }
+
     @IBAction func toBooking(_ sender: Any) {
         let showAdVC = storyboard?.instantiateViewController(withIdentifier: "ShowAdViewController") as! ShowAdViewController
         showAdVC.navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(showAdVC, animated: true)
     }
-    
 }

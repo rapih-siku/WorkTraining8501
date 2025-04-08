@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopCityView" customModule="WorkTraining8501" customModuleProvider="target">
+            <connections>
+                <outlet property="showPopCity" destination="lTq-us-QGA" id="qGZ-26-eKO"/>
+                <outlet property="toAllCityView" destination="qJM-Uu-6L0" id="AD4-yO-Sdh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lTq-us-QGA">
+                    <rect key="frame" x="0.0" y="69" width="393" height="674"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aCV-Ml-Vvl">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJM-Uu-6L0">
+                    <rect key="frame" x="20" y="763" width="353" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Qy3-bI-5ek"/>
+                    </constraints>
+                    <color key="tintColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="查看全部目的地"/>
+                    <connections>
+                        <action selector="tapToAllCity:" destination="-1" eventType="touchUpInside" id="4T5-1A-dv6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lTq-us-QGA" secondAttribute="trailing" id="WaA-Ne-iqv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qJM-Uu-6L0" secondAttribute="trailing" constant="20" id="bYp-Ae-hzd"/>
+                <constraint firstItem="qJM-Uu-6L0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="eDf-cp-lC9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qJM-Uu-6L0" secondAttribute="bottom" constant="20" id="jkH-GV-uVM"/>
+                <constraint firstItem="qJM-Uu-6L0" firstAttribute="top" secondItem="lTq-us-QGA" secondAttribute="bottom" constant="20" id="ka5-2Y-x4u"/>
+                <constraint firstItem="lTq-us-QGA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="l7Z-zg-MRQ"/>
+                <constraint firstItem="lTq-us-QGA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pgq-sG-eBc"/>
+            </constraints>
+            <point key="canvasLocation" x="74" y="82"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
