@@ -50,6 +50,7 @@ class SearchHotelViewModel {
             hotels = hotels.sorted { $0.retailPriceValue > $1.retailPriceValue }
         }
         createShowHotelTableViewVMs()
+        completion()
     }
     
     func filterMinAndMaxPrice() {

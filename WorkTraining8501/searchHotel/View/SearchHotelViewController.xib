@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController storyboardIdentifier="SearchHotelViewController" id="Lcg-Nl-4VF" customClass="SearchHotelViewController" customModule="WorkTraining8501" customModuleProvider="target">
+        <viewController storyboardIdentifier="SearchHotelViewController" id="Lcg-Nl-4VF">
             <view key="view" contentMode="scaleToFill" id="A9g-2f-UKm">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

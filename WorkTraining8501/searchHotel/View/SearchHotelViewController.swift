@@ -42,7 +42,7 @@ class SearchHotelViewController: UIViewController {
             break
         }
         
-        viewModel?.sortData(completion: {
+        viewModel?.sortData {
             self.updateUI()
             
             self.priceHighToLow.tintColor = self.viewModel?.isPriceDescending ?? false ? .purple : .black
@@ -50,7 +50,7 @@ class SearchHotelViewController: UIViewController {
             
             self.toggleSortDataView(isHidden: true)
             self.viewModel?.sortOptionIsHidden = true
-        })
+        }
     }
     
     @IBAction func showSearchFilter(_ sender: Any) {
@@ -75,9 +75,9 @@ class SearchHotelViewController: UIViewController {
                 (minPrice...maxPrice).contains(hotel.retailPriceValue)
             })
             self?.viewModel?.hotels = filteredHotels ?? []
-            self?.viewModel?.sortData(completion: {
+            self?.viewModel?.sortData {
                 self?.updateUI()
-            })
+            }
         }
         
         vm.setThumbPosition = { [weak self] leftThumbPosition, rightThumbPosition in
