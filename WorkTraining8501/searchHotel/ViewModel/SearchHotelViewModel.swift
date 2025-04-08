@@ -16,8 +16,8 @@ class SearchHotelViewModel {
     var sortOptionIsHidden = true
     var maxPrice: Int?
     var minPrice: Int?
-    var leftThumbPosition: Double?
-    var rightThumbPosition: Double?
+    var leftThumbConstant: Double?
+    var rightThumbConstant: Double?
     
     init() {
         fetchHotelsData {
@@ -43,13 +43,11 @@ class SearchHotelViewModel {
         self.showHotelTableViewVMs = self.hotels.map { ShowHotelTableViewCellViewModel(hotel: $0) }
     }
     
-    func sortData(completion: @escaping ([Hotel]) -> Void) {
+    func sortData(completion: @escaping () -> Void) {
         if isPriceDescending == false {
             hotels = hotels.sorted { $0.retailPriceValue < $1.retailPriceValue }
-            completion(hotels)
         } else {
             hotels = hotels.sorted { $0.retailPriceValue > $1.retailPriceValue }
-            completion(hotels)
         }
         createShowHotelTableViewVMs()
     }

@@ -42,7 +42,7 @@ class SearchHotelViewController: UIViewController {
             break
         }
         
-        viewModel?.sortData(completion: { hotels in
+        viewModel?.sortData(completion: {
             self.updateUI()
             
             self.priceHighToLow.tintColor = self.viewModel?.isPriceDescending ?? false ? .purple : .black
@@ -66,8 +66,8 @@ class SearchHotelViewController: UIViewController {
         let vm = FiltersBottomSheetViewModel(
             minPrice: viewModel?.minPrice ?? 0,
             maxPrice: viewModel?.maxPrice ?? 0,
-            leftThumbPosition: viewModel?.leftThumbPosition ?? 0,
-            rightThumbPosition: viewModel?.rightThumbPosition ?? 0
+            leftThumbConstant: viewModel?.leftThumbConstant ?? 0,
+            rightThumbConstant: viewModel?.rightThumbConstant ?? 0
         )
         
         vm.tapFilter = { [weak self] minPrice, maxPrice in
@@ -75,14 +75,14 @@ class SearchHotelViewController: UIViewController {
                 (minPrice...maxPrice).contains(hotel.retailPriceValue)
             })
             self?.viewModel?.hotels = filteredHotels ?? []
-            self?.viewModel?.sortData(completion: { hotels in
+            self?.viewModel?.sortData(completion: {
                 self?.updateUI()
             })
         }
         
         vm.setThumbPosition = { [weak self] leftThumbPosition, rightThumbPosition in
-            self?.viewModel?.leftThumbPosition = leftThumbPosition
-            self?.viewModel?.rightThumbPosition = rightThumbPosition
+            self?.viewModel?.leftThumbConstant = leftThumbPosition
+            self?.viewModel?.rightThumbConstant = rightThumbPosition
         }
         
         bottomSheetVC.setVC(viewModel: vm)
