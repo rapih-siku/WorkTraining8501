@@ -36,17 +36,17 @@ class AllCityView: UIView {
 extension AllCityView: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.allCitiesCount ?? 0
+        return viewModel?.countrySectionHeaderVMs.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
-        return viewModel.fetchCityListIsExpanded(at: section) ? viewModel.allCities[section].cityList.count : 0
+        return viewModel.countrySectionHeaderVMs[section].countryIsExpanded ? viewModel.countrySectionHeaderVMs[section].showAllCityTableViewCellVMs.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowAllCityTableViewCell.identifier) as? ShowAllCityTableViewCell else { fatalError()}
-        let vm = viewModel?.createShowAllCityTableViewCellVM(at: indexPath)
+        let vm = viewModel?.countrySectionHeaderVMs[indexPath.section].showAllCityTableViewCellVMs[indexPath.row]
         cell.selectionStyle = .none
         cell.setCell(viewModel: vm)
         return cell
@@ -58,17 +58,15 @@ extension AllCityView: UITableViewDataSource, UITableViewDelegate {
         header.setView(viewModel: vm)
         header.setSectionHeaderView()
         vm.onTap = { [weak self] in
-            guard let self = self else { return }
-            viewModel?.allCities[section].isExpanded.toggle()
-            vm.country?.isExpanded.toggle()
-            self.showAllCity.reloadSections([section], with: .automatic)
+            vm.countryIsExpanded.toggle()
+            self?.showAllCity.reloadSections([section], with: .automatic)
         }
         return header
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tapCityName = viewModel?.allCities[indexPath.section].cityList[indexPath.row].cityName ?? ""
-        print("點擊了\(tapCityName)")
+        let tapCityName = viewModel?.countrySectionHeaderVMs[indexPath.section].showAllCityTableViewCellVMs[indexPath.row].cityName
+        print("點擊了\(tapCityName ?? "")")
     }
 }
 

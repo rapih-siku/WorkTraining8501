@@ -45,7 +45,7 @@ class PopCityView: UIView {
 extension PopCityView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.popCitiesCount ?? 0
+        return viewModel?.collectionViewCellVMs.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,7 +56,7 @@ extension PopCityView: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("點擊了\(viewModel?.popCities[indexPath.row].itemText ?? "")")
+        print("點擊了\(viewModel?.collectionViewCellVMs[indexPath.row].title ?? "")")
     }
 }
 

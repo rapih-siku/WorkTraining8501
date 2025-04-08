@@ -19,8 +19,6 @@ struct Country: Codable {
     let countryName: String
     let cityList: [City]
     
-    var isExpanded: Bool = false
-    
     enum CodingKeys: String, CodingKey {
         case countryName = "Country_Name"
         case cityList = "City_List"

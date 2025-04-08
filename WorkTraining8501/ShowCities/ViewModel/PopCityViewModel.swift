@@ -8,8 +8,7 @@
 import Foundation
 
 class PopCityViewModel {
-    var popCities: [ModuleItem] = []
-    var popCitiesCount: Int { popCities.count }
+    private var popCities: [ModuleItem] = []
     var collectionViewCellVMs: [ShowPopCityCollectionViewCellViewModel] = []
     
     var didTapButton: (() -> Void)?

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ShowPopCityCollectionViewCellViewModel {
-    var popCity: ModuleItem?
+    private var popCity: ModuleItem?
     var title: String {
         return popCity?.itemText ?? ""
     }

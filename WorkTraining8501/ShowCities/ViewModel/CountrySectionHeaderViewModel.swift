@@ -8,13 +8,15 @@
 import Foundation
 
 class CountrySectionHeaderViewModel {
-    var country: Country?
+    private var country: Country?
     var countryName: String? { country?.countryName }
-    var countryIsExpanded: Bool { country?.isExpanded ?? false }
+    var countryIsExpanded = false
+    var showAllCityTableViewCellVMs: [ShowAllCityTableViewCellViewModel] = []
     
     var onTap: (() -> Void)?
     
     init(country: Country) {
         self.country = country
+        showAllCityTableViewCellVMs = country.cityList.map { ShowAllCityTableViewCellViewModel(city: $0) }
     }
 }
