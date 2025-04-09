@@ -14,16 +14,17 @@ extension BottomSheetViewController {
 }
 
 class BottomSheetViewController: UIViewController {
-
+    
     @IBOutlet weak var optionsTableView: UITableView!
+    
+    static let identifier = "\(BottomSheetViewController.self)"
     
     private var viewModel: BottomSheetViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        optionsTableView.dataSource = self
-        optionsTableView.delegate = self
+        setupUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,15 +41,16 @@ class BottomSheetViewController: UIViewController {
 }
 
 extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.educationData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BottomSheetTableViewCell.reuseIdentifier, for: indexPath) as? BottomSheetTableViewCell else { fatalError() }
-        let currentEducation = viewModel.educationData[indexPath.row]
-        cell.option.text = currentEducation
-        cell.option.textColor = viewModel.isSelected(education: currentEducation) ? .purple : .black
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: OptionsTableViewCell.identifier, for: indexPath) as? OptionsTableViewCell else { fatalError() }
+        let vm = viewModel.bottomSheetTableViewCellVMs[indexPath.row]
+        cell.setCell(viewModel: vm)
+        cell.option.textColor = viewModel.isSelected(education: vm.education ?? "") ? .purple : .black
         cell.selectionStyle = .none
         return cell
     }
@@ -57,5 +59,16 @@ extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate 
         let selected = viewModel.educationData[indexPath.row]
         viewModel.selectEducation(education: selected)
         dismiss(animated: true)
+    }
+}
+
+extension BottomSheetViewController {
+    
+    private func setupUI() {
+        optionsTableView.dataSource = self
+        optionsTableView.delegate = self
+        
+        let optionTableViewCell = UINib(nibName: OptionsTableViewCell.identifier, bundle: nil)
+        optionsTableView.register(optionTableViewCell, forCellReuseIdentifier: OptionsTableViewCell.identifier)
     }
 }

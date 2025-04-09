@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowAdViewController" customModule="WorkTraining8501" customModuleProvider="target">
+            <connections>
+                <outlet property="adCategories" destination="zlW-jr-hcP" id="zAF-CQ-EZl"/>
+                <outlet property="view" destination="gnz-Gy-pcT" id="jzx-jx-L6c"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gnz-Gy-pcT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-jr-hcP">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="y1f-eo-7gi"/>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="zlW-jr-hcP" firstAttribute="leading" secondItem="y1f-eo-7gi" secondAttribute="leading" id="Fs0-6P-5Ip"/>
+                <constraint firstItem="y1f-eo-7gi" firstAttribute="trailing" secondItem="zlW-jr-hcP" secondAttribute="trailing" id="KW4-8q-CpY"/>
+                <constraint firstItem="y1f-eo-7gi" firstAttribute="bottom" secondItem="zlW-jr-hcP" secondAttribute="bottom" id="Uch-pp-Kkp"/>
+                <constraint firstItem="zlW-jr-hcP" firstAttribute="top" secondItem="y1f-eo-7gi" secondAttribute="top" id="d7i-Kc-Xfe"/>
+            </constraints>
+            <point key="canvasLocation" x="138" y="21"/>
+        </view>
+    </objects>
+</document>

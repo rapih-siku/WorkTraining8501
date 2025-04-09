@@ -10,8 +10,13 @@ import Foundation
 class BottomSheetViewModel {
     let educationData = ["博士", "碩士", "學士"]
     var selectedEducation: String?
+    var bottomSheetTableViewCellVMs: [OptionsTableViewCellViewModel] = []
     
     var sentSelectedEducation: ((String) -> Void)?
+    
+    init() {
+        bottomSheetTableViewCellVMs = educationData.map { OptionsTableViewCellViewModel(education: $0) }
+    }
     
     func isSelected(education: String) -> Bool {
         return education == selectedEducation

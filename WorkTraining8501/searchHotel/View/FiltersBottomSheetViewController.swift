@@ -26,7 +26,10 @@ class FiltersBottomSheetViewController: UIViewController {
     @IBOutlet weak var leftThumbLeading: NSLayoutConstraint!
     @IBOutlet weak var rightThumbLeading: NSLayoutConstraint!
     
+    static let identifier = "\(FiltersBottomSheetViewController.self)"
+    
     private var viewModel: FiltersBottomSheetViewModel?
+    private var thumbIsSetup = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,19 @@ class FiltersBottomSheetViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        if thumbIsSetup == false {
+            leftThumbLeading.constant = viewModel?.leftThumbConstant ?? 0
+            if let position = viewModel?.rightThumbConstant, position > 0 {
+                rightThumbLeading.constant = position
+            } else {
+                sliderView.layoutIfNeeded()
+                rightThumbLeading.constant = sliderRails.frame.width - rightThumb.frame.width
+            }
+            thumbIsSetup = true
+        }
+        
         updatePriceRange()
+        self.preferredContentSize = CGSize(width: view.frame.width, height: getBottomSheetHeight())
     }
     
     func getBottomSheetHeight() -> CGFloat {
@@ -62,7 +77,6 @@ class FiltersBottomSheetViewController: UIViewController {
 extension FiltersBottomSheetViewController {
     
     private func setupUI() {
-        
         [leftThumb, rightThumb].forEach {
             $0?.backgroundColor = .white
             $0?.frame.size.width = 20

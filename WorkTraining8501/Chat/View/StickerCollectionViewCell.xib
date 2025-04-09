@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StickerCollectionViewCell" id="hHJ-Uc-0E3" customClass="StickerCollectionViewCell" customModule="WorkTraining8501" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K7B-hk-c3x">
+                <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7XJ-Q6-Otm">
+                        <rect key="frame" x="5" y="5" width="118" height="118"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="7XJ-Q6-Otm" secondAttribute="trailing" constant="5" id="9fZ-h7-2Pp"/>
+                    <constraint firstAttribute="bottom" secondItem="7XJ-Q6-Otm" secondAttribute="bottom" constant="5" id="VGB-KN-vD3"/>
+                    <constraint firstItem="7XJ-Q6-Otm" firstAttribute="top" secondItem="K7B-hk-c3x" secondAttribute="top" constant="5" id="XrO-Ho-9sf"/>
+                    <constraint firstItem="7XJ-Q6-Otm" firstAttribute="leading" secondItem="K7B-hk-c3x" secondAttribute="leading" constant="5" id="XxY-gm-x7M"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <connections>
+                <outlet property="sticker" destination="7XJ-Q6-Otm" id="Ksc-67-sz5"/>
+            </connections>
+            <point key="canvasLocation" x="140" y="21"/>
+        </collectionViewCell>
+    </objects>
+</document>

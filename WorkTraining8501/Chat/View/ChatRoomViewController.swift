@@ -20,18 +20,14 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var showStickers: UICollectionView!
     @IBOutlet weak var backgroundHeight: NSLayoutConstraint!
     
+    static let identifier = "\(ChatRoomViewController.self)"
+    
     private var viewModel: ChatRoomViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chatRoom.dataSource = self
-        chatRoom.delegate = self
-        showStickers.dataSource = self
-        showStickers.delegate = self
-        
-        inputMessage.layer.cornerRadius = 10
-        
+        setupUI()
         bindViewModel()
         setKeyboardNotification()
         dismissKeyboardOnTap()
@@ -62,10 +58,6 @@ class ChatRoomViewController: UIViewController {
         }
         view.layoutIfNeeded()
     }
-    
-    @IBAction func clearMessage(_ sender: Any) {
-        viewModel?.clearMessages()
-    }
 }
 
 extension ChatRoomViewController: UITableViewDataSource,UITableViewDelegate {
@@ -79,22 +71,22 @@ extension ChatRoomViewController: UITableViewDataSource,UITableViewDelegate {
         guard let message = viewModel?.chatContent[indexPath.row] else { fatalError() }
         
         if message.name == viewModel?.userName, message.sticker == nil {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SentMessageTableViewCell.reuseIdentifier, for: indexPath) as? SentMessageTableViewCell else { fatalError() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SentMessageTableViewCell.identifier, for: indexPath) as? SentMessageTableViewCell else { fatalError() }
             cell.selectionStyle = .none
             cell.setCell(message: message)
             return cell
         } else if message.name == viewModel?.userName, message.sticker != nil {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SentStickerTableViewCell.reuseIdentifier, for: indexPath) as? SentStickerTableViewCell else { fatalError() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SentStickerTableViewCell.identifier, for: indexPath) as? SentStickerTableViewCell else { fatalError() }
             cell.selectionStyle = .none
             cell.setCell(message: message)
             return cell
         } else if message.name != viewModel?.userName, message.sticker == nil {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ReceivedMessageTableViewCell.reuseIdentifier, for: indexPath) as? ReceivedMessageTableViewCell else { fatalError() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ReceivedMessageTableViewCell.identifier, for: indexPath) as? ReceivedMessageTableViewCell else { fatalError() }
             cell.selectionStyle = .none
             cell.setCell(message: message)
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ReceivedStickerTableViewCell.reuseIdentifier, for: indexPath) as? ReceivedStickerTableViewCell else { fatalError() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ReceivedStickerTableViewCell.identifier, for: indexPath) as? ReceivedStickerTableViewCell else { fatalError() }
             cell.selectionStyle = .none
             cell.setCell(message: message)
             return cell
@@ -109,7 +101,7 @@ extension ChatRoomViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StickerCollectionViewCell.reuseIdentifier, for: indexPath) as? StickerCollectionViewCell else { fatalError() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StickerCollectionViewCell.identifier, for: indexPath) as? StickerCollectionViewCell else { fatalError() }
         cell.setCell(stickerName: viewModel?.stickers[indexPath.item] ?? "")
         cell.setCellSize(collectionView: showStickers)
         return cell
@@ -123,8 +115,8 @@ extension ChatRoomViewController: UICollectionViewDataSource, UICollectionViewDe
 }
 
 extension ChatRoomViewController {
+    
     private func bindViewModel() {
-        
         viewModel?.scrollToBottom(tableView: chatRoom,animated: false)
         
         viewModel?.onDataUpdated = { [weak self] in
@@ -135,6 +127,34 @@ extension ChatRoomViewController {
         }
     }
     
+    private func setupUI() {
+        chatRoom.dataSource = self
+        chatRoom.delegate = self
+        showStickers.dataSource = self
+        showStickers.delegate = self
+        
+        let receivedMessageTableViewCell = UINib(nibName: ReceivedMessageTableViewCell.identifier, bundle: nil)
+        chatRoom.register(receivedMessageTableViewCell, forCellReuseIdentifier: ReceivedMessageTableViewCell.identifier)
+        let receivedStickerTableViewCell = UINib(nibName: ReceivedStickerTableViewCell.identifier, bundle: nil)
+        chatRoom.register(receivedStickerTableViewCell, forCellReuseIdentifier: ReceivedStickerTableViewCell.identifier)
+        let sentMessageTableViewCell = UINib(nibName: SentMessageTableViewCell.identifier, bundle: nil)
+        chatRoom.register(sentMessageTableViewCell, forCellReuseIdentifier: SentMessageTableViewCell.identifier)
+        let sentStickerTableViewCell = UINib(nibName: SentStickerTableViewCell.identifier, bundle: nil)
+        chatRoom.register(sentStickerTableViewCell, forCellReuseIdentifier: SentStickerTableViewCell.identifier)
+        
+        let stickerCollectionViewCell = UINib(nibName: StickerCollectionViewCell.identifier, bundle: nil)
+        showStickers.register(stickerCollectionViewCell, forCellWithReuseIdentifier: StickerCollectionViewCell.identifier)
+        
+        inputMessage.layer.cornerRadius = 10
+        
+        let clearButton = UIBarButtonItem(title: "clear", image: nil, target: self, action: #selector(clearMessages))
+        navigationItem.rightBarButtonItem = clearButton
+    }
+    
+    @objc private func clearMessages() {
+        viewModel?.clearMessages()
+    }
+    
     private func closeStickers() {
         self.showStickers.isHidden = true
         self.backgroundHeight.constant = 0
@@ -143,6 +163,7 @@ extension ChatRoomViewController {
 
 // 鍵盤監聽
 extension ChatRoomViewController {
+    
     private func dismissKeyboardOnTap() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false

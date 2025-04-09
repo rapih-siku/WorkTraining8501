@@ -15,12 +15,13 @@ class ShowCitiesViewController: UIViewController {
     @IBOutlet weak var pageScroll: UIScrollView!
     @IBOutlet weak var scrollLineLeading: NSLayoutConstraint!
     
-    let selectedColor = UIColor(red: 170/255, green: 96/255, blue: 200/255, alpha: 1)
-    let unselectedColor = UIColor.lightGray
+    static let identifier: String = "\(ShowCitiesViewController.self)"
     
     private var viewModel: ShowCitiesViewModel?
     private var popCityPage: PopCityView?
     private var allCityPage: AllCityView?
+    private let selectedColor = UIColor(red: 170/255, green: 96/255, blue: 200/255, alpha: 1)
+    private let unselectedColor = UIColor.lightGray
     
     override func viewDidLoad() {
         super.viewDidLoad()

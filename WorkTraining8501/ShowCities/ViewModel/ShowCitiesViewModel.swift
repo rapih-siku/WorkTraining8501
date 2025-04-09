@@ -8,6 +8,7 @@
 import Foundation
 
 class ShowCitiesViewModel {
+    
     var currentPage = 0
     
     func loadJSON<T: Codable>(fileName: String, type: T.Type, completion: ((T) -> Void)? = nil) {

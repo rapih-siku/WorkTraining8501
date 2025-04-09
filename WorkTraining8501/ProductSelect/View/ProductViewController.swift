@@ -16,20 +16,23 @@ extension ProductViewController {
 class ProductViewController: UIViewController {
     
     @IBOutlet weak var productCustomization: UIButton!
+    @IBOutlet weak var chatRoom: UIButton!
+    @IBOutlet weak var showAD: UIButton!
+    @IBOutlet weak var showCities: UIButton!
+    @IBOutlet weak var searchHotel: UIButton!
+    
+    static let identifier: String = "\(ProductViewController.self)"
     
     private var viewModel: ProductViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem?.title = "登出"
-        navigationItem.backButtonTitle = ""
-        
-        productCustomization.configuration?.title = viewModel?.productCustomizationTitle()
+        setupUI()
     }
     
     @IBAction func selectCustomerType(_ sender: Any) {
-        let productBottomSheetVC = storyboard?.instantiateViewController(withIdentifier: "ProductBottomSheetViewController") as! ProductBottomSheetViewController
+        let productBottomSheetVC = ProductBottomSheetViewController(nibName: ProductBottomSheetViewController.identifier, bundle: nil)
         
         if let sheetPresentationController = productBottomSheetVC.sheetPresentationController {
             sheetPresentationController.detents = [.custom(resolver: { context in
@@ -49,29 +52,49 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func toChatRoom(_ sender: Any) {
-        let chatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
+        let chatRoomVC = ChatRoomViewController(nibName: ChatRoomViewController.identifier, bundle: nil)
         let vm = ChatRoomViewModel()
         vm.chatContent = vm.loadMessagesData()
         chatRoomVC.setVC(viewModel: vm)
+        chatRoomVC.navigationItem.title = "聊天室"
         self.navigationController?.pushViewController(chatRoomVC, animated: true)
+    }
+    
+    @IBAction func toShowAD(_ sender: Any) {
+        let showAdVC = ShowAdViewController(nibName: ShowAdViewController.identifier, bundle: nil)
+        showAdVC.navigationItem.title = "行程廣告"
+        navigationController?.pushViewController(showAdVC, animated: true)
     }
     
 
     @IBAction func toShowCity(_ sender: Any) {
-        let showCitiesVC = self.storyboard?.instantiateViewController(withIdentifier: "ShowCitiesViewController") as! ShowCitiesViewController
+        let showCitiesVC = ShowCitiesViewController(nibName: ShowCitiesViewController.identifier, bundle: nil)
         navigationController?.pushViewController(showCitiesVC, animated: true)
         
     }
-
-    @IBAction func toBooking(_ sender: Any) {
-        let showAdVC = storyboard?.instantiateViewController(withIdentifier: "ShowAdViewController") as! ShowAdViewController
-        showAdVC.navigationItem.backButtonTitle = ""
-        navigationController?.pushViewController(showAdVC, animated: true)
-    }
     
     @IBAction func toSearchHotel(_ sender: Any) {
-        let searchHotelVC = storyboard?.instantiateViewController(withIdentifier: "SearchHotelViewController") as! SearchHotelViewController
-        searchHotelVC.navigationItem.backButtonTitle = ""
+        let searchHotelVC = SearchHotelViewController(nibName: SearchHotelViewController.identifier, bundle: nil)
+        searchHotelVC.navigationItem.title = "搜尋飯店"
         navigationController?.pushViewController(searchHotelVC, animated: true)
+    }
+}
+
+extension ProductViewController {
+    
+    private func setupUI() {
+        navigationItem.backButtonTitle = ""
+        
+        productCustomization.configuration?.title = viewModel?.productCustomizationTitle()
+        
+        let buttons = [productCustomization, chatRoom, showAD, showCities, searchHotel]
+        let purpleColor = CGColor(red: 170/255, green: 96/255, blue: 200/255, alpha: 1)
+        buttons.forEach { button in
+            button?.layer.borderWidth = 1
+            button?.layer.borderColor = purpleColor
+            button?.layer.cornerRadius = 5
+            button?.tintColor = UIColor(cgColor: purpleColor)
+            button?.backgroundColor = .clear
+        }
     }
 }
