@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductViewController" customModule="WorkTraining8501" customModuleProvider="target">
+            <connections>
+                <outlet property="chatRoom" destination="MKL-ng-AuQ" id="HfM-Xh-hV6"/>
+                <outlet property="productCustomization" destination="8Om-v0-Mjb" id="WbA-c7-nZo"/>
+                <outlet property="searchHotel" destination="u9o-pj-Ed2" id="p78-oN-4fU"/>
+                <outlet property="showAD" destination="LIF-Yv-uSr" id="7tD-3Q-HRm"/>
+                <outlet property="showCities" destination="3N7-Ke-0Lb" id="Vta-tl-crV"/>
+                <outlet property="view" destination="2Ie-GU-AwK" id="t6B-LM-ryC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2Ie-GU-AwK">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-Ps-NZp">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-Yv-uSr">
+                            <rect key="frame" x="98.333333333333329" y="299" width="196.33333333333337" height="35"/>
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="dhw-2j-E54"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="行程廣告"/>
+                            <connections>
+                                <action selector="toShowAD:" destination="-1" eventType="touchUpInside" id="nog-HO-T3R"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKL-ng-AuQ">
+                            <rect key="frame" x="98.333333333333329" y="214" width="196.33333333333337" height="35"/>
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="3SL-7E-bdQ"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title=" 聊天室">
+                                <imageReference key="image" image="ellipsis.message.fill" catalog="system" symbolScale="medium"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="toChatRoom:" destination="-1" eventType="touchUpInside" id="Kf3-0e-Edp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9o-pj-Ed2">
+                            <rect key="frame" x="98.333333333333329" y="469" width="196.33333333333337" height="35"/>
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="fX1-cH-9dO"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="搜尋飯店"/>
+                            <connections>
+                                <action selector="toSearchHotel:" destination="-1" eventType="touchUpInside" id="gl0-eI-A5g"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3N7-Ke-0Lb">
+                            <rect key="frame" x="98.333333333333329" y="384" width="196.33333333333337" height="35"/>
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.37647058820000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="Spo-cH-kWc"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="搜尋城市"/>
+                            <connections>
+                                <action selector="toShowCity:" destination="-1" eventType="touchUpInside" id="Unl-oK-RdL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Om-v0-Mjb">
+                            <rect key="frame" x="98.333333333333329" y="130" width="196.33333333333337" height="34"/>
+                            <color key="backgroundColor" red="0.66666666666666663" green="0.37647058823529411" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="JT6-Ww-1YI"/>
+                            </constraints>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="旅遊人數">
+                                <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="selectCustomerType:" destination="-1" eventType="touchUpInside" id="ag6-8Q-xDc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="MKL-ng-AuQ" firstAttribute="trailing" secondItem="8Om-v0-Mjb" secondAttribute="trailing" id="1jH-1f-k8d"/>
+                        <constraint firstItem="LIF-Yv-uSr" firstAttribute="leading" secondItem="8Om-v0-Mjb" secondAttribute="leading" id="4HW-ku-A8C"/>
+                        <constraint firstItem="8Om-v0-Mjb" firstAttribute="top" secondItem="9k4-Ps-NZp" secondAttribute="top" constant="130" id="FLG-ji-Wut"/>
+                        <constraint firstItem="8Om-v0-Mjb" firstAttribute="centerX" secondItem="9k4-Ps-NZp" secondAttribute="centerX" id="MXh-G6-s1C"/>
+                        <constraint firstItem="u9o-pj-Ed2" firstAttribute="leading" secondItem="8Om-v0-Mjb" secondAttribute="leading" id="S5u-vW-yu8"/>
+                        <constraint firstItem="u9o-pj-Ed2" firstAttribute="trailing" secondItem="8Om-v0-Mjb" secondAttribute="trailing" id="aY7-xk-9u9"/>
+                        <constraint firstItem="8Om-v0-Mjb" firstAttribute="width" secondItem="9k4-Ps-NZp" secondAttribute="width" multiplier="0.5" id="dLv-zS-W4m"/>
+                        <constraint firstItem="3N7-Ke-0Lb" firstAttribute="leading" secondItem="8Om-v0-Mjb" secondAttribute="leading" id="eTb-ed-qQ0"/>
+                        <constraint firstItem="MKL-ng-AuQ" firstAttribute="top" secondItem="8Om-v0-Mjb" secondAttribute="bottom" constant="50" id="jI0-gm-4ix"/>
+                        <constraint firstItem="LIF-Yv-uSr" firstAttribute="top" secondItem="MKL-ng-AuQ" secondAttribute="bottom" constant="50" id="keM-MW-ffR"/>
+                        <constraint firstItem="u9o-pj-Ed2" firstAttribute="top" secondItem="3N7-Ke-0Lb" secondAttribute="bottom" constant="50" id="o0c-dZ-k3e"/>
+                        <constraint firstItem="3N7-Ke-0Lb" firstAttribute="top" secondItem="LIF-Yv-uSr" secondAttribute="bottom" constant="50" id="tG5-JT-QTk"/>
+                        <constraint firstItem="LIF-Yv-uSr" firstAttribute="trailing" secondItem="8Om-v0-Mjb" secondAttribute="trailing" id="tSN-oZ-PSq"/>
+                        <constraint firstItem="MKL-ng-AuQ" firstAttribute="leading" secondItem="8Om-v0-Mjb" secondAttribute="leading" id="ySF-bv-PCA"/>
+                        <constraint firstItem="3N7-Ke-0Lb" firstAttribute="trailing" secondItem="8Om-v0-Mjb" secondAttribute="trailing" id="yjl-Me-Fgg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="IC2-87-rvd"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="IC2-87-rvd" firstAttribute="trailing" secondItem="9k4-Ps-NZp" secondAttribute="trailing" id="CtL-zF-63K"/>
+                <constraint firstItem="9k4-Ps-NZp" firstAttribute="bottom" secondItem="IC2-87-rvd" secondAttribute="bottom" id="EYY-1p-CJa"/>
+                <constraint firstItem="9k4-Ps-NZp" firstAttribute="top" secondItem="IC2-87-rvd" secondAttribute="top" id="Lfd-AQ-IRX"/>
+                <constraint firstItem="9k4-Ps-NZp" firstAttribute="leading" secondItem="IC2-87-rvd" secondAttribute="leading" id="tCx-O3-Jg9"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ellipsis.message.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

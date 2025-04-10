@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class SelectionTableViewCellViewModel {
+    
     var travelerInfo: TravelersInfo?
     var title: String {
         return "\(travelerInfo?.travelerType ?? "") \(travelerInfo?.age ?? "")"

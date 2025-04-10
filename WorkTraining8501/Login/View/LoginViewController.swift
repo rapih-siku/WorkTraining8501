@@ -9,25 +9,20 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var loginTitle: UILabel!
     @IBOutlet weak var account: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var register: UIButton!
     
+    static let identifier = "\(LoginViewController.self)"
+    
     private var viewModel: LoginViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 方便測試用
-        account.text = "Q1234"
-        password.text = "Q1234567"
-        
-        account.delegate = self
-        password.delegate = self
-        
+        setupUI()
         bindViewModel()
     }
     
@@ -40,7 +35,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func toRegister(_ sender: Any) {
-        let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        let registerVC = RegisterViewController(nibName: RegisterViewController.identifier, bundle: nil)
         let vm = RegisterViewModel()
         vm.registerSuccess2 = { [weak self] newUser in
             DispatchQueue.main.async {
@@ -69,7 +64,7 @@ extension LoginViewController {
         viewModel?.loginSuccessMessage = { [weak self] message in
             DispatchQueue.main.async {
                 self?.showAlert(title: nil, message: message) {
-                    let productVC = self?.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as! ProductViewController
+                    let productVC = ProductViewController(nibName: ProductViewController.identifier, bundle: nil)
                     let vm = ProductViewModel()
                     productVC.setVC(viewModel: vm)
                     self?.navigationController?.pushViewController(productVC, animated: true)
@@ -77,9 +72,21 @@ extension LoginViewController {
             }
         }
     }
+    
+    private func setupUI() {
+        // 方便測試用
+        account.text = "Q1234"
+        password.text = "Q1234567"
+        
+        account.delegate = self
+        password.delegate = self
+        
+        navigationItem.backButtonTitle = "登出"
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         errorMessage.text = nil
         return true

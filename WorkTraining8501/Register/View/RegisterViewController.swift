@@ -24,6 +24,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var register: UIButton!
     
+    static let identifier = "\(RegisterViewController.self)"
+    
     private var viewModel: RegisterViewModel?
     
     override func viewDidLoad() {
@@ -37,8 +39,7 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func selectEducation(_ sender: UIButton) {
-        
-        let buttonSheetVC = storyboard?.instantiateViewController(identifier: "BottomSheetViewController") as! BottomSheetViewController
+        let buttonSheetVC = BottomSheetViewController(nibName: BottomSheetViewController.identifier, bundle: nil)
         let vm = BottomSheetViewModel()
         vm.setEducation(education: sender.configuration?.title ?? "學士")
         vm.sentSelectedEducation = { [weak self] education in
@@ -66,8 +67,8 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController {
+    
     private func bindViewModel() {
-        
         viewModel?.errorMessage = { [weak self] massage in
             DispatchQueue.main.async(execute:  {
                 self?.errorMessage.text = massage

@@ -18,6 +18,8 @@ class SearchHotelViewController: UIViewController {
     @IBOutlet weak var priceLowToHigh: UIButton!
     @IBOutlet weak var priceHighToLow: UIButton!
     
+    static let identifier = "\(SearchHotelViewController.self)"
+    
     private var viewModel: SearchHotelViewModel?
     
     override func viewDidLoad() {
@@ -57,7 +59,7 @@ class SearchHotelViewController: UIViewController {
         self.toggleSortDataView(isHidden: true)
         self.viewModel?.sortOptionIsHidden = true
         
-        let bottomSheetVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FiltersBottomSheetViewController") as! FiltersBottomSheetViewController
+        let bottomSheetVC = FiltersBottomSheetViewController(nibName: FiltersBottomSheetViewController.identifier, bundle: nil)
         if let sheetPresentationController = bottomSheetVC.sheetPresentationController {
             sheetPresentationController.detents = [ .custom(resolver: { context in
                 return bottomSheetVC.getBottomSheetHeight()
@@ -91,6 +93,7 @@ class SearchHotelViewController: UIViewController {
 }
 
 extension SearchHotelViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.hotels.count ?? 0
     }
@@ -109,6 +112,7 @@ extension SearchHotelViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension SearchHotelViewController {
+    
     private func bindViewModel() {
         viewModel = SearchHotelViewModel()
     }

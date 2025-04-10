@@ -11,12 +11,8 @@ import UIKit
 class AdCategoryTableViewCellViewModel {
     
     var adModule: Module?
-    var title: String? {
-        return adModule?.moduleText
-    }
-    var adItems: [Item]? {
-        return adModule?.moduleItems
-    }
+    var title: String? { return adModule?.moduleText }
+    var adItems: [Item]? { return adModule?.moduleItems }
     var collectionViewCellVMs: [AdCollectionViewCellViewModel] = []
     
     init(adModule: Module) {

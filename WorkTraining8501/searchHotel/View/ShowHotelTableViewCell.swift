@@ -55,6 +55,7 @@ class ShowHotelTableViewCell: UITableViewCell {
 }
 
 extension ShowHotelTableViewCell {
+    
     func setupUI() {
         corner.layer.cornerRadius = 5
         corner.clipsToBounds = true

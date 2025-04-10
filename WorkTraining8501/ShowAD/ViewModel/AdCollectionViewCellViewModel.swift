@@ -11,9 +11,7 @@ import UIKit
 class AdCollectionViewCellViewModel {
     
     var adItem: Item?
-    var text: String? {
-        return adItem?.itemText
-    }
+    var text: String? { return adItem?.itemText }
     var price: NSMutableAttributedString {
         let priceString = "$\(adItem?.itemPrice ?? 0)"
         let suffixString = "起"
@@ -33,9 +31,7 @@ class AdCollectionViewCellViewModel {
         
         return attributedText
     }
-    var imageUrlString: String? {
-        return adItem?.itemPic
-    }
+    var imageUrlString: String? { return adItem?.itemPic }
     
     init (adItem : Item) {
         self.adItem = adItem

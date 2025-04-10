@@ -13,7 +13,7 @@ class SentStickerTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var sticker: UIImageView!
     
-    static let reuseIdentifier = "\(SentStickerTableViewCell.self)"
+    static let identifier = "\(SentStickerTableViewCell.self)"
     
     override func awakeFromNib() {
         super.awakeFromNib()

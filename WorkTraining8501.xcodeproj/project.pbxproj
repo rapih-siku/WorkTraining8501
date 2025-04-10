@@ -12,7 +12,6 @@
 		0D2EB93E2D9A20A300883A78 /* AdCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EB92A2D9A20A300883A78 /* AdCollectionViewCell.xib */; };
 		0D2EB93F2D9A20A300883A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EB9332D9A20A300883A78 /* Assets.xcassets */; };
 		0D2EB9412D9A20A300883A78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EB9362D9A20A300883A78 /* LaunchScreen.storyboard */; };
-		0D2EB9422D9A20A300883A78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EB9382D9A20A300883A78 /* Main.storyboard */; };
 		0D2EB9432D9A20A300883A78 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB8FE2D9A20A300883A78 /* Message.swift */; };
 		0D2EB9442D9A20A300883A78 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9002D9A20A300883A78 /* ChatRoomViewController.swift */; };
 		0D2EB9452D9A20A300883A78 /* ReceivedMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9012D9A20A300883A78 /* ReceivedMessageTableViewCell.swift */; };
@@ -27,11 +26,11 @@
 		0D2EB94E2D9A20A300883A78 /* TravelersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9112D9A20A300883A78 /* TravelersInfo.swift */; };
 		0D2EB94F2D9A20A300883A78 /* ProductBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9132D9A20A300883A78 /* ProductBottomSheetViewController.swift */; };
 		0D2EB9502D9A20A300883A78 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9142D9A20A300883A78 /* ProductViewController.swift */; };
-		0D2EB9512D9A20A300883A78 /* selectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9152D9A20A300883A78 /* selectionTableViewCell.swift */; };
+		0D2EB9512D9A20A300883A78 /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9152D9A20A300883A78 /* SelectionTableViewCell.swift */; };
 		0D2EB9522D9A20A300883A78 /* ProductBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9172D9A20A300883A78 /* ProductBottomSheetViewModel.swift */; };
 		0D2EB9532D9A20A300883A78 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9182D9A20A300883A78 /* ProductViewModel.swift */; };
 		0D2EB9542D9A20A300883A78 /* SelectionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9192D9A20A300883A78 /* SelectionTableViewCellViewModel.swift */; };
-		0D2EB9552D9A20A300883A78 /* BottomSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB91C2D9A20A300883A78 /* BottomSheetTableViewCell.swift */; };
+		0D2EB9552D9A20A300883A78 /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB91C2D9A20A300883A78 /* OptionsTableViewCell.swift */; };
 		0D2EB9562D9A20A300883A78 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB91D2D9A20A300883A78 /* BottomSheetViewController.swift */; };
 		0D2EB9572D9A20A300883A78 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB91E2D9A20A300883A78 /* RegisterViewController.swift */; };
 		0D2EB9582D9A20A300883A78 /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9202D9A20A300883A78 /* BottomSheetViewModel.swift */; };
@@ -52,6 +51,15 @@
 		0D2EB9782D9A4B5800883A78 /* ShowHotelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EB9772D9A4B5800883A78 /* ShowHotelTableViewCell.xib */; };
 		0D2EB9792D9A4B5800883A78 /* ShowHotelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EB9762D9A4B5800883A78 /* ShowHotelTableViewCell.swift */; };
 		0D35AF552D9BC4450052AD19 /* FiltersBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35AF542D9BC4450052AD19 /* FiltersBottomSheetViewController.swift */; };
+		0D6EEC532DA601A300A470DF /* ChatRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC522DA601A300A470DF /* ChatRoomViewController.xib */; };
+		0D6EEC552DA6035000A470DF /* ReceivedMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC542DA6035000A470DF /* ReceivedMessageTableViewCell.xib */; };
+		0D6EEC572DA6038500A470DF /* ReceivedStickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC562DA6038500A470DF /* ReceivedStickerTableViewCell.xib */; };
+		0D6EEC592DA603AD00A470DF /* SentMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC582DA603AD00A470DF /* SentMessageTableViewCell.xib */; };
+		0D6EEC5B2DA603D100A470DF /* SentStickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC5A2DA603D100A470DF /* SentStickerTableViewCell.xib */; };
+		0D6EEC5D2DA603FD00A470DF /* StickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC5C2DA603FD00A470DF /* StickerCollectionViewCell.xib */; };
+		0D6EEC5F2DA60E9200A470DF /* ShowAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC5E2DA60E9200A470DF /* ShowAdViewController.xib */; };
+		0D6EEC612DA60FE000A470DF /* ShowCitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC602DA60FE000A470DF /* ShowCitiesViewController.xib */; };
+		0D6EEC632DA6160600A470DF /* FiltersBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6EEC622DA6160600A470DF /* FiltersBottomSheetViewController.xib */; };
 		0DB95F5A2DA4C9A90014AE6D /* CountrySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F492DA4C9A90014AE6D /* CountrySectionHeaderView.xib */; };
 		0DB95F5B2DA4C9A90014AE6D /* AllCity.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F412DA4C9A90014AE6D /* AllCity.json */; };
 		0DB95F5C2DA4C9A90014AE6D /* AllCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F472DA4C9A90014AE6D /* AllCityView.xib */; };
@@ -74,9 +82,17 @@
 		0DB95F6D2DA4C9A90014AE6D /* ShowAllCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB95F4C2DA4C9A90014AE6D /* ShowAllCityTableViewCell.swift */; };
 		0DB95F6E2DA4C9A90014AE6D /* ShowAllCityTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB95F552DA4C9A90014AE6D /* ShowAllCityTableViewCellViewModel.swift */; };
 		0DB95F702DA4CAC00014AE6D /* SearchHotelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F6F2DA4CAC00014AE6D /* SearchHotelViewController.xib */; };
+		0DB95F742DA4FFB60014AE6D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F732DA4FFB60014AE6D /* RegisterViewController.xib */; };
+		0DB95F9B2DA50B880014AE6D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F9A2DA50B880014AE6D /* LoginViewController.xib */; };
+		0DB95F9D2DA50ED20014AE6D /* BottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F9C2DA50ED20014AE6D /* BottomSheetViewController.xib */; };
+		0DB95F9F2DA50FDF0014AE6D /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB95F9E2DA50FDF0014AE6D /* OptionsTableViewCell.xib */; };
+		0DB95FA12DA512410014AE6D /* OptionsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB95FA02DA512410014AE6D /* OptionsTableViewCellViewModel.swift */; };
 		0DCF7D422DA35DF800E5ECBB /* SearchHotelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCF7D412DA35DF800E5ECBB /* SearchHotelViewModel.swift */; };
 		0DCF7D442DA35EF100E5ECBB /* ShowHotelTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCF7D432DA35EF100E5ECBB /* ShowHotelTableViewCellViewModel.swift */; };
 		0DCF7D462DA3610300E5ECBB /* FiltersBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCF7D452DA3610300E5ECBB /* FiltersBottomSheetViewModel.swift */; };
+		0DFFE7F12DA51DB70000D09C /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE7F02DA51DB70000D09C /* ProductViewController.xib */; };
+		0DFFE7F32DA523FB0000D09C /* ProductBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE7F22DA523FB0000D09C /* ProductBottomSheetViewController.xib */; };
+		0DFFE7F52DA5244D0000D09C /* SelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE7F42DA5244D0000D09C /* SelectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,11 +110,11 @@
 		0D2EB9112D9A20A300883A78 /* TravelersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelersInfo.swift; sourceTree = "<group>"; };
 		0D2EB9132D9A20A300883A78 /* ProductBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBottomSheetViewController.swift; sourceTree = "<group>"; };
 		0D2EB9142D9A20A300883A78 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
-		0D2EB9152D9A20A300883A78 /* selectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectionTableViewCell.swift; sourceTree = "<group>"; };
+		0D2EB9152D9A20A300883A78 /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		0D2EB9172D9A20A300883A78 /* ProductBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		0D2EB9182D9A20A300883A78 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		0D2EB9192D9A20A300883A78 /* SelectionTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		0D2EB91C2D9A20A300883A78 /* BottomSheetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetTableViewCell.swift; sourceTree = "<group>"; };
+		0D2EB91C2D9A20A300883A78 /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		0D2EB91D2D9A20A300883A78 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		0D2EB91E2D9A20A300883A78 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0D2EB9202D9A20A300883A78 /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
@@ -117,7 +133,6 @@
 		0D2EB9332D9A20A300883A78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2EB9342D9A20A300883A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D2EB9352D9A20A300883A78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0D2EB9372D9A20A300883A78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D2EB9392D9A20A300883A78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0D2EB93A2D9A20A300883A78 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0D2EB96F2D9A270200883A78 /* HotelList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HotelList.json; sourceTree = "<group>"; };
@@ -126,6 +141,15 @@
 		0D2EB9762D9A4B5800883A78 /* ShowHotelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowHotelTableViewCell.swift; sourceTree = "<group>"; };
 		0D2EB9772D9A4B5800883A78 /* ShowHotelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowHotelTableViewCell.xib; sourceTree = "<group>"; };
 		0D35AF542D9BC4450052AD19 /* FiltersBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersBottomSheetViewController.swift; sourceTree = "<group>"; };
+		0D6EEC522DA601A300A470DF /* ChatRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomViewController.xib; sourceTree = "<group>"; };
+		0D6EEC542DA6035000A470DF /* ReceivedMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceivedMessageTableViewCell.xib; sourceTree = "<group>"; };
+		0D6EEC562DA6038500A470DF /* ReceivedStickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceivedStickerTableViewCell.xib; sourceTree = "<group>"; };
+		0D6EEC582DA603AD00A470DF /* SentMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentMessageTableViewCell.xib; sourceTree = "<group>"; };
+		0D6EEC5A2DA603D100A470DF /* SentStickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentStickerTableViewCell.xib; sourceTree = "<group>"; };
+		0D6EEC5C2DA603FD00A470DF /* StickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		0D6EEC5E2DA60E9200A470DF /* ShowAdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowAdViewController.xib; sourceTree = "<group>"; };
+		0D6EEC602DA60FE000A470DF /* ShowCitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCitiesViewController.xib; sourceTree = "<group>"; };
+		0D6EEC622DA6160600A470DF /* FiltersBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersBottomSheetViewController.xib; sourceTree = "<group>"; };
 		0D7CA5E12D77DDCD000B7AB7 /* WorkTraining8501.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkTraining8501.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB95F412DA4C9A90014AE6D /* AllCity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AllCity.json; sourceTree = "<group>"; };
 		0DB95F422DA4C9A90014AE6D /* AllCityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCityData.swift; sourceTree = "<group>"; };
@@ -149,9 +173,17 @@
 		0DB95F562DA4C9A90014AE6D /* ShowCitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCitiesViewModel.swift; sourceTree = "<group>"; };
 		0DB95F572DA4C9A90014AE6D /* ShowPopCityCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPopCityCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		0DB95F6F2DA4CAC00014AE6D /* SearchHotelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHotelViewController.xib; sourceTree = "<group>"; };
+		0DB95F732DA4FFB60014AE6D /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		0DB95F9A2DA50B880014AE6D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		0DB95F9C2DA50ED20014AE6D /* BottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetViewController.xib; sourceTree = "<group>"; };
+		0DB95F9E2DA50FDF0014AE6D /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
+		0DB95FA02DA512410014AE6D /* OptionsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0DCF7D412DA35DF800E5ECBB /* SearchHotelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHotelViewModel.swift; sourceTree = "<group>"; };
 		0DCF7D432DA35EF100E5ECBB /* ShowHotelTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowHotelTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0DCF7D452DA3610300E5ECBB /* FiltersBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersBottomSheetViewModel.swift; sourceTree = "<group>"; };
+		0DFFE7F02DA51DB70000D09C /* ProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
+		0DFFE7F22DA523FB0000D09C /* ProductBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductBottomSheetViewController.xib; sourceTree = "<group>"; };
+		0DFFE7F42DA5244D0000D09C /* SelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,11 +209,17 @@
 			isa = PBXGroup;
 			children = (
 				0D2EB9002D9A20A300883A78 /* ChatRoomViewController.swift */,
+				0D6EEC522DA601A300A470DF /* ChatRoomViewController.xib */,
 				0D2EB9012D9A20A300883A78 /* ReceivedMessageTableViewCell.swift */,
+				0D6EEC542DA6035000A470DF /* ReceivedMessageTableViewCell.xib */,
 				0D2EB9022D9A20A300883A78 /* ReceivedStickerTableViewCell.swift */,
+				0D6EEC562DA6038500A470DF /* ReceivedStickerTableViewCell.xib */,
 				0D2EB9032D9A20A300883A78 /* SentMessageTableViewCell.swift */,
+				0D6EEC582DA603AD00A470DF /* SentMessageTableViewCell.xib */,
 				0D2EB9042D9A20A300883A78 /* SentStickerTableViewCell.swift */,
+				0D6EEC5A2DA603D100A470DF /* SentStickerTableViewCell.xib */,
 				0D2EB9052D9A20A300883A78 /* StickerCollectionViewCell.swift */,
+				0D6EEC5C2DA603FD00A470DF /* StickerCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2EB90C2D9A20A300883A78 /* LoginViewController.swift */,
+				0DB95F9A2DA50B880014AE6D /* LoginViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,9 +288,12 @@
 		0D2EB9162D9A20A300883A78 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0D2EB9132D9A20A300883A78 /* ProductBottomSheetViewController.swift */,
 				0D2EB9142D9A20A300883A78 /* ProductViewController.swift */,
-				0D2EB9152D9A20A300883A78 /* selectionTableViewCell.swift */,
+				0DFFE7F02DA51DB70000D09C /* ProductViewController.xib */,
+				0D2EB9132D9A20A300883A78 /* ProductBottomSheetViewController.swift */,
+				0DFFE7F22DA523FB0000D09C /* ProductBottomSheetViewController.xib */,
+				0D2EB9152D9A20A300883A78 /* SelectionTableViewCell.swift */,
+				0DFFE7F42DA5244D0000D09C /* SelectionTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,8 +301,8 @@
 		0D2EB91A2D9A20A300883A78 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0D2EB9172D9A20A300883A78 /* ProductBottomSheetViewModel.swift */,
 				0D2EB9182D9A20A300883A78 /* ProductViewModel.swift */,
+				0D2EB9172D9A20A300883A78 /* ProductBottomSheetViewModel.swift */,
 				0D2EB9192D9A20A300883A78 /* SelectionTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -279,9 +321,12 @@
 		0D2EB91F2D9A20A300883A78 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0D2EB91C2D9A20A300883A78 /* BottomSheetTableViewCell.swift */,
-				0D2EB91D2D9A20A300883A78 /* BottomSheetViewController.swift */,
 				0D2EB91E2D9A20A300883A78 /* RegisterViewController.swift */,
+				0DB95F732DA4FFB60014AE6D /* RegisterViewController.xib */,
+				0D2EB91D2D9A20A300883A78 /* BottomSheetViewController.swift */,
+				0DB95F9C2DA50ED20014AE6D /* BottomSheetViewController.xib */,
+				0D2EB91C2D9A20A300883A78 /* OptionsTableViewCell.swift */,
+				0DB95F9E2DA50FDF0014AE6D /* OptionsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,8 +334,9 @@
 		0D2EB9222D9A20A300883A78 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0D2EB9202D9A20A300883A78 /* BottomSheetViewModel.swift */,
 				0D2EB9212D9A20A300883A78 /* RegisterViewModel.swift */,
+				0D2EB9202D9A20A300883A78 /* BottomSheetViewModel.swift */,
+				0DB95FA02DA512410014AE6D /* OptionsTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2EB92B2D9A20A300883A78 /* ShowAdViewController.swift */,
+				0D6EEC5E2DA60E9200A470DF /* ShowAdViewController.xib */,
 				0D2EB9272D9A20A300883A78 /* AdCategoryTableViewCell.swift */,
 				0D2EB9282D9A20A300883A78 /* AdCategoryTableViewCell.xib */,
 				0D2EB9292D9A20A300883A78 /* AdCollectionViewCell.swift */,
@@ -358,7 +405,6 @@
 				0D2EB9332D9A20A300883A78 /* Assets.xcassets */,
 				0D2EB9342D9A20A300883A78 /* Info.plist */,
 				0D2EB9362D9A20A300883A78 /* LaunchScreen.storyboard */,
-				0D2EB9382D9A20A300883A78 /* Main.storyboard */,
 				0D2EB9322D9A20A300883A78 /* AppDelegate.swift */,
 				0D2EB9392D9A20A300883A78 /* SceneDelegate.swift */,
 				0D2EB93A2D9A20A300883A78 /* Utils.swift */,
@@ -406,17 +452,18 @@
 		0DB95F512DA4C9A90014AE6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0DB95F4E2DA4C9A90014AE6D /* ShowCitiesViewController.swift */,
+				0D6EEC602DA60FE000A470DF /* ShowCitiesViewController.xib */,
+				0DB95F4A2DA4C9A90014AE6D /* PopCityView.swift */,
+				0DB95F4B2DA4C9A90014AE6D /* PopCityView.xib */,
+				0DB95F4F2DA4C9A90014AE6D /* ShowPopCityCollectionViewCell.swift */,
+				0DB95F502DA4C9A90014AE6D /* ShowPopCityCollectionViewCell.xib */,
 				0DB95F462DA4C9A90014AE6D /* AllCityView.swift */,
 				0DB95F472DA4C9A90014AE6D /* AllCityView.xib */,
 				0DB95F482DA4C9A90014AE6D /* CountrySectionHeaderView.swift */,
 				0DB95F492DA4C9A90014AE6D /* CountrySectionHeaderView.xib */,
-				0DB95F4A2DA4C9A90014AE6D /* PopCityView.swift */,
-				0DB95F4B2DA4C9A90014AE6D /* PopCityView.xib */,
 				0DB95F4C2DA4C9A90014AE6D /* ShowAllCityTableViewCell.swift */,
 				0DB95F4D2DA4C9A90014AE6D /* ShowAllCityTableViewCell.xib */,
-				0DB95F4E2DA4C9A90014AE6D /* ShowCitiesViewController.swift */,
-				0DB95F4F2DA4C9A90014AE6D /* ShowPopCityCollectionViewCell.swift */,
-				0DB95F502DA4C9A90014AE6D /* ShowPopCityCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -452,6 +499,7 @@
 				0D2EB9762D9A4B5800883A78 /* ShowHotelTableViewCell.swift */,
 				0D2EB9772D9A4B5800883A78 /* ShowHotelTableViewCell.xib */,
 				0D35AF542D9BC4450052AD19 /* FiltersBottomSheetViewController.swift */,
+				0D6EEC622DA6160600A470DF /* FiltersBottomSheetViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,21 +585,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2EB93C2D9A20A300883A78 /* ADTrain1.json in Resources */,
+				0DFFE7F52DA5244D0000D09C /* SelectionTableViewCell.xib in Resources */,
 				0D2EB93D2D9A20A300883A78 /* AdCategoryTableViewCell.xib in Resources */,
 				0D2EB93E2D9A20A300883A78 /* AdCollectionViewCell.xib in Resources */,
 				0D2EB9782D9A4B5800883A78 /* ShowHotelTableViewCell.xib in Resources */,
 				0D2EB93F2D9A20A300883A78 /* Assets.xcassets in Resources */,
+				0DFFE7F32DA523FB0000D09C /* ProductBottomSheetViewController.xib in Resources */,
+				0D6EEC5B2DA603D100A470DF /* SentStickerTableViewCell.xib in Resources */,
+				0DB95F742DA4FFB60014AE6D /* RegisterViewController.xib in Resources */,
 				0D2EB9412D9A20A300883A78 /* LaunchScreen.storyboard in Resources */,
+				0D6EEC552DA6035000A470DF /* ReceivedMessageTableViewCell.xib in Resources */,
+				0D6EEC632DA6160600A470DF /* FiltersBottomSheetViewController.xib in Resources */,
+				0D6EEC5D2DA603FD00A470DF /* StickerCollectionViewCell.xib in Resources */,
+				0DB95F9D2DA50ED20014AE6D /* BottomSheetViewController.xib in Resources */,
 				0D2EB9732D9A270200883A78 /* HotelList.json in Resources */,
-				0D2EB9422D9A20A300883A78 /* Main.storyboard in Resources */,
+				0D6EEC592DA603AD00A470DF /* SentMessageTableViewCell.xib in Resources */,
+				0DB95F9B2DA50B880014AE6D /* LoginViewController.xib in Resources */,
 				0DB95F5A2DA4C9A90014AE6D /* CountrySectionHeaderView.xib in Resources */,
 				0DB95F5B2DA4C9A90014AE6D /* AllCity.json in Resources */,
 				0DB95F5C2DA4C9A90014AE6D /* AllCityView.xib in Resources */,
+				0DB95F9F2DA50FDF0014AE6D /* OptionsTableViewCell.xib in Resources */,
+				0DFFE7F12DA51DB70000D09C /* ProductViewController.xib in Resources */,
+				0D6EEC5F2DA60E9200A470DF /* ShowAdViewController.xib in Resources */,
 				0DB95F5D2DA4C9A90014AE6D /* ShowAllCityTableViewCell.xib in Resources */,
+				0D6EEC612DA60FE000A470DF /* ShowCitiesViewController.xib in Resources */,
+				0D6EEC572DA6038500A470DF /* ReceivedStickerTableViewCell.xib in Resources */,
 				0DB95F5E2DA4C9A90014AE6D /* PopCity.json in Resources */,
 				0DB95F5F2DA4C9A90014AE6D /* PopCityView.xib in Resources */,
 				0DB95F602DA4C9A90014AE6D /* ShowPopCityCollectionViewCell.xib in Resources */,
 				0DB95F702DA4CAC00014AE6D /* SearchHotelViewController.xib in Resources */,
+				0D6EEC532DA601A300A470DF /* ChatRoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,11 +643,12 @@
 				0D2EB94E2D9A20A300883A78 /* TravelersInfo.swift in Sources */,
 				0D2EB94F2D9A20A300883A78 /* ProductBottomSheetViewController.swift in Sources */,
 				0D2EB9502D9A20A300883A78 /* ProductViewController.swift in Sources */,
-				0D2EB9512D9A20A300883A78 /* selectionTableViewCell.swift in Sources */,
+				0D2EB9512D9A20A300883A78 /* SelectionTableViewCell.swift in Sources */,
+				0DB95FA12DA512410014AE6D /* OptionsTableViewCellViewModel.swift in Sources */,
 				0D2EB9522D9A20A300883A78 /* ProductBottomSheetViewModel.swift in Sources */,
 				0D2EB9532D9A20A300883A78 /* ProductViewModel.swift in Sources */,
 				0D2EB9542D9A20A300883A78 /* SelectionTableViewCellViewModel.swift in Sources */,
-				0D2EB9552D9A20A300883A78 /* BottomSheetTableViewCell.swift in Sources */,
+				0D2EB9552D9A20A300883A78 /* OptionsTableViewCell.swift in Sources */,
 				0D2EB9742D9A270200883A78 /* HotelsData.swift in Sources */,
 				0D2EB9752D9A270200883A78 /* SearchHotelViewController.swift in Sources */,
 				0D2EB9562D9A20A300883A78 /* BottomSheetViewController.swift in Sources */,
@@ -630,14 +694,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		0D2EB9382D9A20A300883A78 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D2EB9372D9A20A300883A78 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -652,7 +708,6 @@
 				INFOPLIST_FILE = WorkTraining8501/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -680,7 +735,6 @@
 				INFOPLIST_FILE = WorkTraining8501/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;

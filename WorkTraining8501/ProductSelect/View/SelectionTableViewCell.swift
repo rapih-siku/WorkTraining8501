@@ -7,14 +7,14 @@
 
 import UIKit
 
-class selectionTableViewCell: UITableViewCell {
+class SelectionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var count: UILabel!
     @IBOutlet weak var subtractButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     
-    static let reuseIdentifier = "\(selectionTableViewCell.self)"
+    static let identifier = "\(SelectionTableViewCell.self)"
     
     private var viewModel: SelectionTableViewCellViewModel?
     

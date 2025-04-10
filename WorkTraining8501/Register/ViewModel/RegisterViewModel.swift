@@ -10,13 +10,13 @@ import UIKit
 
 class RegisterViewModel {
     
+    var isAgreeRule: Bool = false
+    
     var errorMessage: ((String) -> Void)?
     var registerSuccess: ((User) -> Void)?
     var registerSuccess2: ((User) -> Void)?
     var sexChanged: ((String) -> Void)?
     var educationChange: ((String) -> Void)?
-    
-    var isAgreeRule: Bool = false
     
     private var newUser = User(account: "", password: "", education: "大學")
     
@@ -80,5 +80,4 @@ class RegisterViewModel {
             print("🔴users儲存失敗！")
         }
     }
-    
 }

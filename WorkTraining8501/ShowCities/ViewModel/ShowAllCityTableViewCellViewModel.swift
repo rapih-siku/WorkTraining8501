@@ -8,10 +8,9 @@
 import Foundation
 
 class ShowAllCityTableViewCellViewModel {
+    
     var city: City?
-    var cityName: String? {
-        return city?.cityName
-    }
+    var cityName: String? { return city?.cityName }
     
     init(city: City) {
         self.city = city

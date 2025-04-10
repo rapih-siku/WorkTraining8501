@@ -9,13 +9,11 @@ import Foundation
 import UIKit
 
 class ShowPopCityCollectionViewCellViewModel {
+    
+    var title: String { return popCity?.itemText ?? "" }
+    var imageString: String? { return popCity?.itemPic ?? "" }
+    
     private var popCity: ModuleItem?
-    var title: String {
-        return popCity?.itemText ?? ""
-    }
-    var imageString: String? {
-        return popCity?.itemPic ?? ""
-    }
     
     init (popCity: ModuleItem) {
         self.popCity = popCity

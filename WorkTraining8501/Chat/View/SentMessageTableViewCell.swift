@@ -14,7 +14,7 @@ class SentMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var message: UILabel!
     
-    static let reuseIdentifier = "\(SentMessageTableViewCell.self)"
+    static let identifier = "\(SentMessageTableViewCell.self)"
     
     override func awakeFromNib() {
         super.awakeFromNib()

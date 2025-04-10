@@ -11,7 +11,7 @@ class StickerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sticker: UIImageView!
     
-    static let reuseIdentifier = "\(StickerCollectionViewCell.self)"
+    static let identifier = "\(StickerCollectionViewCell.self)"
     
     func setCell(stickerName: String) {
         let image = UIImage(named: stickerName)

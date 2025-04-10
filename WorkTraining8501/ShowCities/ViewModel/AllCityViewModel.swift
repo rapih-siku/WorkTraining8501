@@ -8,8 +8,10 @@
 import Foundation
 
 class AllCityViewModel {
-    private var allCities: [Country] = []
+    
     var countrySectionHeaderVMs: [CountrySectionHeaderViewModel] = []
+    
+    private var allCities: [Country] = []
     
     init(allCities: [Country]) {
         self.allCities = allCities

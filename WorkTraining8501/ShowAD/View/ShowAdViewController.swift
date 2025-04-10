@@ -11,6 +11,8 @@ class ShowAdViewController: UIViewController {
     
     @IBOutlet weak var adCategories: UITableView!
     
+    static let identifier: String = "\(ShowAdViewController.self)"
+    
     private var viewModel: ShowAdViewModel?
     
     override func viewDidLoad() {
@@ -22,15 +24,16 @@ class ShowAdViewController: UIViewController {
 }
 
 extension ShowAdViewController : UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel?.adModules.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AdCategoryTableViewCell.identifier, for: indexPath) as? AdCategoryTableViewCell else { fatalError() }
-        cell.selectionStyle = .none
-        
         let vm = viewModel?.cellVMs[indexPath.row]
+        
+        cell.selectionStyle = .none
         cell.setCell(viewModel: vm)
         
         return cell
@@ -38,6 +41,7 @@ extension ShowAdViewController : UITableViewDataSource, UITableViewDelegate {
 }
 
 extension ShowAdViewController {
+    
     private func bindViewModel() {
         viewModel = ShowAdViewModel()
     }
@@ -45,6 +49,7 @@ extension ShowAdViewController {
     private func setupUI() {
         adCategories.dataSource = self
         adCategories.delegate = self
+        
         let adCategoryTableViewCell = UINib(nibName: AdCategoryTableViewCell.identifier, bundle: nil)
         adCategories.register(adCategoryTableViewCell, forCellReuseIdentifier: AdCategoryTableViewCell.identifier)
     }
